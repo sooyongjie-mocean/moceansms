@@ -1,0 +1,28 @@
+{
+    "MY": {
+        "name": "Malaysia",
+        "operators": [
+            {
+                "name": "Maxis",
+                "price": 0.03
+            },
+            {
+                "name": "Digi",
+                "price": 0.04
+            }
+        ]
+    },
+    "SG": {
+        "name": "Singnapore",
+        "operators": [
+            {
+                "name": "Maxis",
+                "price": 0.03
+            },
+            {
+                "name": "Digi",
+                "price": 0.04
+            }
+        ]
+    }
+}

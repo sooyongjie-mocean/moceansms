@@ -1,0 +1,184 @@
+@import "mixins";
+
+.footer {
+  background: #141f2b;
+  padding: 0 0 !important;
+  &-wrapper {
+    width: 100%;
+    height: fit-content;
+    padding: 16px;
+    background-image: url(../img/ocean.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 84px 84px 0 0;
+    @media screen and (max-width: 1025px ) {
+      border-radius: 48px 48px 0 0;
+    }
+    @include flex-row-center(24px);
+    color: white;
+    font-family: "Poppins", serif;
+  }
+
+  .contact-us {
+    padding: 120px 0px;
+    @include grid-y-center();
+    row-gap: 48px;
+    h2,
+    h3 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 36px;
+      font-family: "Poppins", serif;
+    }
+    h3 {
+      font-weight: 500;
+      color: white;
+      font-family: "Inter", serif;
+    }
+    svg {
+      height: 12px;
+    }
+    form {
+      margin-top: 24px;
+      width: 100%;
+      max-width: 400px;
+      justify-self: center;
+      @include flex-row-center(12px);
+      .input-wrapper {
+        width: 100%;
+        @include flex-row-center(4px);
+      }
+      label {
+        width: 100%;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 1rem;
+        border-radius: 16px;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        height: 44px;
+        padding: 0 16px;
+        margin-top: 24px;
+        border-radius: 16px;
+        font-size: 16px;
+      }
+    }
+    .trial-signup {
+      @include grid-x-center(8px);
+      grid-template-columns: min-content max-content min-content max-content min-content max-content;
+
+      @media screen and (max-width: 620px) {
+        grid-template-columns: min-content max-content;
+      }
+    }
+  }
+
+
+  footer {
+    padding: 36px 48px;
+    background: #1d252f;
+    border-radius: 48px;
+    display: grid;
+    grid-template-areas:
+      "nav-1 nav-2 nav-3"
+      "nav-4 nav-4 nav-4";
+    column-gap: 80px;
+    row-gap: 40px;
+    font-family: "Nunito", serif;
+    justify-items: center;
+
+    @media screen and (min-width: 840px) {
+      grid-template-columns: 1fr 0.8fr 1fr;
+    }
+    @media screen and (max-width: 650px) {
+      width: 100%;
+      justify-items: left;
+      grid-template-areas:
+        "nav-1 nav-1"
+        "nav-2 nav-3"
+        "nav-4 nav-4";
+    }
+
+    @media screen and (max-width: 450px) {
+      justify-items: left;
+      grid-template-areas:
+        "nav-1"
+        "nav-2"
+        "nav-3"
+        "nav-4";
+    }
+    .col1 {
+      @include flex-row(16px);
+      height: fit-content;
+      grid-area: nav-1;
+      .mocean-logo {
+        margin-bottom: 16px;
+      }
+    }
+    .col2 {
+      min-width: 50%;
+      grid-area: nav-2;
+    }
+    .col2,
+    .co3 {
+      width: fit-content;
+      @include flex-row(0px);
+
+      h4 {
+        width: 100%;
+        padding: 24px 0 16px 0;
+        color: #bccbce;
+        font-weight: 500;
+      }
+      ul {
+        height: fit-content;
+        column-gap: 8px;
+        @include grid-y-center();
+        grid-template-columns: auto;
+        row-gap: 4px;
+      }
+      a {
+        color: inherit;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      li {
+        list-style: none;
+      }
+      span {
+        color: #93a7ad;
+      }
+    }
+    .col3 {
+      grid-area: nav-3;
+      ul {
+        height: fit-content;
+        column-gap: 8px;
+        @include grid-y-center();
+        grid-template-columns: 24px auto;
+        row-gap: 4px;
+      }
+    }
+    .col4 {
+      grid-area: nav-4;
+      color: #6c6f75;
+      font-size: 14px;
+      span {
+        @include flex-col(16px);
+      }
+    }
+    address {
+      color: #bccbce;
+      font-style: normal;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import "mixins";
+
+.feature {
+  min-height: max-content;
+  @include flex-row-center(4px);
+  h1 {
+    font-size: 28px !important;
+    text-align: center;
+  }
+
+  &-summary {
+    background: #f1f1f2;
+
+    .wrapper {
+      padding: 48px 48px;
+      background: #fff;
+      border-radius: 24px;
+      @include flex-row-center(72px);
+      h3 {
+        color: $title;
+        font-weight: 500;
+        font-family: "Poppins", serif;
+      }
+      p {
+        color: $subtitle;
+        font-family: "Inter", serif;
+        line-height: 24px;
+      }
+    }
+  }
+  &-wrapper {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 48px;
+    row-gap: 48px;
+  }
+  @media screen and (max-width: 1536px) {
+    &-wrapper {
+      width: 720px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    &-wrapper {
+      width: 540px;
+      grid-template-columns: 1fr;
+    }
+  }
+  @media screen and (max-width: 720px) {
+    &-wrapper {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+  }
+}

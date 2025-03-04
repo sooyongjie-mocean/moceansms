@@ -1,0 +1,193 @@
+@import "mixins";
+
+nav {
+  max-height: auto;
+  padding: 1rem 2rem 1rem 2rem;
+  display: grid;
+  grid-template-areas: "nav-left nav-center nav-right";
+  grid-template-columns: 21rem auto 21rem;
+  justify-content: space-between;
+  align-items: center;  
+  column-gap: 60px;
+  width: calc(100% - 4rem);
+  background: unset;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 2.25rem;
+  transform: translateX(-50%);
+  border-radius: 4.5rem;
+  z-index: 99;
+
+  .navbar-left {
+    grid-area: nav-left;
+    justify-self: start;
+  }
+  .navbar-center {
+    width: 100%;
+    max-height: fit-con tent;
+    @include flex-col-center(.5rem);
+    grid-area: nav-center;
+    ul {
+      width: 100%;
+      list-style: none;
+      @include flex-col-center(4.5rem);
+
+      a {
+        width: max-content;
+        display: flex;
+        font-weight: 600;
+        font-size: 1rem;
+        &:visited {
+          color: inherit;
+        }
+      }
+    }
+  }
+  .navbar-right {
+    @include flex-col-center(.5rem);
+    justify-self: end;
+    grid-area: nav-right;
+
+    button,
+    a {
+      background: unset;
+      padding: .5rem .75rem;
+      border-radius: 1rem;
+      color: #fff;
+      @include flex-col-center(.25rem);
+      &:nth-child(2) {
+        background: white !important;
+        color: black;
+      }
+    }
+    svg.ham-icon {
+      fill: white;
+      display: none;
+      cursor: pointer;
+    }
+  }
+  &.onscroll {
+    width: auto;
+    background: #fff;
+    color: #111;
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px,
+      rgba(0, 0, 0, 0.02) 0px 1px 1px 0.5px,
+      rgba(0, 0, 0, 0.02) 0px 3px 3px 1.5px,
+      rgba(0, 0, 0, 0.02) 0px 6px 6px -3px,
+      rgba(0, 0, 0, 0.02) 0px .75rem .75rem -6px,
+      rgba(0, 0, 0, 0.02) 0px 2.25rem 2.25rem -.75rem;
+    transition: 0.3s ease-in-out;
+
+    .navbar-center {
+      &.hidden {
+        margin-top: 0px;
+        max-height: 0px;
+      }
+    }
+    .navbar-right {
+      button,
+      a {
+        width: max-content;
+        font-size: 1rem;
+        padding: .75rem 1rem !important;
+        &:nth-child(1) {
+          background: #000;
+          color: #fff;
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+      svg.ham-icon {
+        cursor: pointer;
+        fill: black;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1635px) {
+    .navbar-right button {
+      display: none;
+    }
+  }
+  // @media screen and (max-width: 1025px) {
+  @media screen and (max-width: 1635px) {
+    padding: 1rem 1rem 1rem 2rem;
+    // height: 75.9.5rem;
+    width: calc(100% - 72px);
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "nav-left nav-right"
+      "nav-center nav-center";
+    border-radius: 2rempx;
+    &.onscroll {
+      height: auto;
+      width: calc(100% - 72px);
+      .navbar-center {
+        margin-top: 1rem;
+        background: #f1f1f2;
+        border-radius: 1rem;
+        overflow: hidden;
+        ul {
+          @include flex-row(0);
+          li {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid #eaebec;
+            a {
+              width: 100%;
+              padding: 1rem 1rem;
+              border-radius: 1rem;
+
+              &:hover {
+                background: #e6e7e8;
+              }
+            }
+          }
+        }
+      }
+    }
+    .navbar-center {
+      margin-top: 2.25rem;
+      transition: 0.28s;
+    }
+    .navbar-right {
+      svg.ham-icon {
+        display: flex;
+      }
+    }
+    .navbar-center.hidden {
+      opacity: 0;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    width: calc(100% - 2.25rem) !important;
+    padding: 1rem .75rem 1rem 2.25rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    .navbar-right {
+      button,
+      a {
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+    &.onscroll {
+      .navbar-right {
+        button,
+        a {
+          &:nth-child(0) {
+            display: none;
+          }
+          &:nth-child(1) {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}

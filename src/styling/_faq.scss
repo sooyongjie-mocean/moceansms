@@ -1,0 +1,55 @@
+@import "mixins";
+
+section.faq {
+  background: #141f2b;
+  @include flex-row-center(24px);
+  h2 {
+    color: #fff;
+  }
+  .accordian {
+    min-height: 75px;
+    width: 100%;
+    padding: 24px 28px;
+    background: #2f474d;
+    border-radius: 24px;
+    @include flex-row(0px);
+    overflow: hidden;
+    transition: height 0.7s ease-in-out;
+
+    @media screen and (min-width: 760px) {
+      max-width: 600px;
+      &-wrapper {
+        width: auto;
+      }
+    }
+
+    &.active {
+      row-gap: 16px;
+      transition: height 0.7s ease-in-out;
+    }
+    &-wrapper {
+      width: 100%;
+      //560px
+      @include flex-row-center(16px);
+    }
+    &-summary {
+      height: auto;
+      font-family: "Poppins", serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #e7f0f3;
+      cursor: pointer;
+    }
+    &-details {
+      height: 50px;
+      color: #e7f0f3;
+      font-family: "Nunito", serif;
+      font-weight: 500;
+      overflow: hidden;
+    }
+  }
+
+  @media screen and (max-width: 1025px) {
+    padding: 60px 24px;
+  }
+}

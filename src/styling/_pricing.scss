@@ -1,0 +1,50 @@
+@import "mixins";
+
+.pricing {
+  padding-top: 120px;
+  padding-bottom: 200px;
+  background: #f1f1f2;
+  @include flex-row-center(60px);
+  @media screen and (min-width: 760px) {
+    &-wrapper {
+      max-width: 660px;
+    }
+  }
+  &-wrapper {
+    width: 100%;
+    @include flex-row-center(24px);
+  }
+  select {
+    width: 100%;
+    padding: 12px 12px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    color: #4b5563;
+    font-size: 18px;
+    font-family: "Inter", serif;
+    font-weight: 500;
+    appearance: none;
+  }
+  .selector-wrapper {
+    width: 100%;
+    @include flex-col-center(24px);
+  }
+  table {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    tr {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      width: 100%;
+    }
+    th {
+      padding: 20px 24px;
+      text-align: left;
+    }
+    td {
+      padding: 0px 24px 12px 24px;
+    }
+  }
+}

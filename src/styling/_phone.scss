@@ -1,0 +1,141 @@
+@import "mixins";
+
+.phone {
+  @include flex-col(0px);
+  position: relative;
+  font-family: "Reddit Sans", serif;
+  &-portrait {
+    .frame {
+      height: 580px;
+    }
+  }
+  &-landscape {
+    display: none;
+    left: 4px;
+    .frame {
+      height: 400px !important;
+      // width: 580px;
+    }
+    .phone-elements {
+      padding: 48px 28px;
+
+      .clock {
+        display: none;
+      }
+
+      svg.fade {
+        left: -1px;
+        bottom: -1px;
+        width: calc(100% + 2px);
+        z-index: 999;
+      }
+    }
+  }
+
+  &-portrait &-elements {
+    padding: 48px 32px;
+  }
+  &-elements {
+    height: 100%;
+    width: 100%;
+    @include flex-row(0px);
+    position: absolute;
+    top: 0px;
+
+    .icons {
+      margin-bottom: 24px;
+      position: relative;
+      width: 40px;
+      align-self: flex-end;
+    }
+    .clock {
+      margin-bottom: 16px;
+      position: relative;
+      font-size: 56px;
+      font-weight: 400;
+      color: #c9e6ff;
+    }
+    .date {
+      margin-bottom: 16px;
+      position: relative;
+      left: 0px;
+      color: white;
+    }
+
+    svg.fade {
+      position: absolute;
+      left: -1px;
+      bottom: -1px;
+      width: calc(100% + 2px);
+      z-index: 999;
+    }
+  }
+}
+
+.usecase {
+  background: #f1f1f2;
+  @include flex-col(72px);
+  // column-gap: 72px;
+  .accordian {
+    width: 100%;
+    max-width: 500px;
+    padding: 24px 28px;
+    background: #fff;
+    border-radius: 24px;
+    @include flex-row(0px);
+    overflow: hidden;
+    transition: height 0.7s ease-in-out;
+
+    &.active {
+      row-gap: 16px;
+      transition: height 0.7s ease-in-out;
+    }
+    &-wrapper {
+      width: auto;
+      @include flex-row(16px);
+      h1 {
+        text-align: center;
+      }
+    }
+    &-summary {
+      font-family: "Poppins", serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1b1b21;
+    }
+    &-details {
+      height: 50px;
+      color: #46464f;
+      font-weight: 500;
+      line-height: 24px;
+      overflow: hidden;
+    }
+  }
+
+  @media screen and (max-width: 1536px) {
+    padding: 40px 80px;
+    // @include flex-row-center(40px);
+  }
+
+  @media screen and (max-width: 985px) {
+    padding: 78px 24px;
+    column-gap: 40px;
+    @include flex-row-center(40px);
+
+    .phone-portrait {
+      display: none;
+    }
+    .phone-landscape {
+      display: flex;
+    }
+    h1 {
+      font-size: 24px;
+    }
+
+    .phone-portrait {
+      .frame {
+        height: 540px;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import "mixins";
+
+section.hero {
+  height: 100vh;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  column-gap: 120px;
+
+  .text-wrapper {
+    @include flex-row(24px);
+  }
+  ul {
+    font-size: 20px;
+    line-height: 1.75rem;
+  }
+
+  button {
+    width: fit-content;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 20px;
+  }
+  .messages-wrapper {
+    width: 40em;
+  }
+  .message-md {
+    display: none;
+  }
+
+  @media screen and (min-width: 3000px) {
+    padding: 120px 560px;
+  }
+
+  @media screen and (max-width: 2200px) {
+  }
+
+  @media screen and (max-width: 1800px) {
+    padding: 120px 160px;
+    column-gap: 60px;
+  }
+
+  // ipad; notification preview small
+  @media screen and (max-width: 1537px) {
+    padding: 80px 100px;
+    column-gap: 40px;
+    .message-lg {
+      .content {
+        row-gap: 6px;
+      }
+      svg {
+        height: 48px !important;
+        width: 48px !important;
+      }
+      .title {
+        font-size: 17.1px;
+      }
+      .body {
+        font-size: 16px;
+      }
+    }
+  }
+  // ipad; notification preview small
+  @media screen and (max-width: 1400px) {
+    column-gap: 40px;
+
+    .messages-wrapper {
+      width: 33em;
+    }
+    .message-md {
+      display: flex;
+    }
+    .message-lg {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: unset !important;
+    grid-template-rows: max-content max-content;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    row-gap: 120px;
+    .messages-wrapper {
+      width: 33em;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    padding: 40px 40px;
+    .messages-wrapper {
+      width: 100%;
+    }
+  }
+}
