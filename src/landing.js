@@ -18,13 +18,12 @@ function landing(props) {
             alt=""
           />
           <h1>
-            <span>Personalized</span> business text messaging
+            <span>Power up</span> your messaging game
           </h1>
           <p>
-            Reach your customers on any messaging channel, all from one shared
-            inbox that works across web and mobile. Heymarket makes business
-            texting intuitive, secure, and reliable so you can focus on what
-            counts – your customers.
+            Send OTPs, notifications, and marketing SMS in the Philippines for
+            as low as $0.008 (PHP 0.463) per message — fast, reliable, and
+            effortless!
           </p>
           <div className="button-group">
             <button>Learn more</button>
@@ -37,42 +36,42 @@ function landing(props) {
               <img src={require("./img/shopee_logo.png")} alt="" />
             </div>
           </div>
-          
-        <div className="messages-wrapper">
-          <div className="message message-md">
-            <div className="icon">
-            <img src={require("./img/msg_cimb_icon.png")} alt="" />
+
+          <div className="messages-wrapper">
+            <div className="message message-md">
+              <div className="icon">
+                <img src={require("./img/msg_cimb_icon.png")} alt="" />
+              </div>
+              <div className="content">
+                <div className="title">CIMB Bank</div>
+                <div className="body">
+                  RM0 CIMB: MYR 270.00 was charged on your card...
+                </div>
+              </div>
             </div>
-            <div className="content">
-              <div className="title">CIMB Bank</div>
-              <div className="body">
-                RM0 CIMB: MYR 270.00 was charged on your card...
+            <div className="message message-md sms">
+              <div className="icon">
+                <img src={require("./img/msg_sms_icon.png")} alt="" />
+              </div>
+              <div className="content">
+                <div className="title">Shopee</div>
+                <div className="body">
+                  RM0 Shopee: 12.12 sales is coming! Enjoy up to ...
+                </div>
+              </div>
+            </div>
+            <div className="message message-md">
+              <div className="icon">
+                <img src={require("./img/msg_laz_icon.png")} alt="" />
+              </div>
+              <div className="content">
+                <div className="title">CIMB Bank</div>
+                <div className="body">
+                  RM0 CIMB: MYR 270.00 was charged on your card...
+                </div>
               </div>
             </div>
           </div>
-          <div className="message message-md sms">
-            <div className="icon">
-            <img src={require("./img/msg_sms_icon.png")} alt="" />
-            </div>
-            <div className="content">
-              <div className="title">Shopee</div>
-              <div className="body">
-                RM0 Shopee: 12.12 sales is coming! Enjoy up to ...
-              </div>
-            </div>
-          </div>
-          <div className="message message-md">
-            <div className="icon">
-            <img src={require("./img/msg_laz_icon.png")} alt="" />
-            </div>
-            <div className="content">
-              <div className="title">CIMB Bank</div>
-              <div className="body">
-                RM0 CIMB: MYR 270.00 was charged on your card...
-              </div>
-            </div>
-          </div>
-        </div>
         </div>
       </section>
       <section id="feature-summary" className="landing-features">
@@ -150,6 +149,35 @@ function landing(props) {
             Send marketing messages on WhatsApp using Broadcast or Flow on our
             customer engagement solution Moments, or over our flexible WhatsApp
             API.
+          </p>
+        </div>
+        <img src={require("./img/wa_promo.png")} alt="" />
+      </section>
+      <section className="landing-whatsapp light">
+        <div className="landing-whatsapp-left">
+          <h2>Technology & Reliability</h2>
+          <p>
+            Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
+            uptime, and seamless reach across all networks in the Philippines.
+          </p>
+          <p>
+            MOCEAN’s secure and scalable SMS API seamlessly integrates with your
+            systems for effortless automation.
+          </p>
+        </div>
+        <img src={require("./img/wa_promo.png")} alt="" />
+      </section>
+      <section className="landing-whatsapp dark">
+        <div className="landing-whatsapp-left">
+          <h2>Compliance & Security</h2>
+          <p>
+            MOCEAN adheres to Philippines telecom regulations and ensures full
+            compliance with data security standards, protecting both your
+            business and your customers.
+          </p>
+          <p>
+            We ensure fast, reliable, and cost-efficient messaging with direct
+            connections to Philippines telecom networks.
           </p>
         </div>
         <img src={require("./img/wa_promo.png")} alt="" />

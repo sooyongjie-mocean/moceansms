@@ -1385,8 +1385,11 @@ section.landing-features .button-group {
 .landing-whatsapp img {
   height: 240px;
 }
-.landing-whatsapp.la-wa2 {
+.landing-whatsapp.la-wa2, .landing-whatsapp.dark {
   background: #060720;
+}
+.landing-whatsapp.light {
+  color: #222;
 }
 @media screen and (max-width: 500px) {
   .landing-whatsapp {

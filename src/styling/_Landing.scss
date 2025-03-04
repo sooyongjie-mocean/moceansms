@@ -290,8 +290,12 @@ section.landing-features {
   img {
     height: 240px;
   }
-  &.la-wa2 {
+  &.la-wa2,
+  &.dark {
     background: #060720;
+  }
+  &.light {
+    color: #222;
   }
 
   @media screen and (max-width: 500px) {
