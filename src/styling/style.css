@@ -1095,8 +1095,8 @@ a {
   font-size: 0.96rem;
 }
 .landing-container .button-group button:nth-child(1) {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid #000;
+  color: #000;
 }
 .landing-container .button-group button:nth-child(2) {
   color: #000;
@@ -1108,9 +1108,14 @@ a {
   }
 }
 
+#hero .button-group button:nth-child(1) {
+  border-color: #fff;
+  color: #fff !important;
+}
+
 .landing-wrapper {
   min-height: 100vh;
-  background-image: url("../img/landing.jpg");
+  background-image: url("../img/landing.webp");
   background-size: cover;
   background-position: center;
 }
@@ -1126,7 +1131,13 @@ a {
   column-gap: 8rem;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-template-areas: "hero-logo" "hero-title" "hero-messages" "hero-paragraph" "hero-buttons" "hero-stats";
+  grid-template-areas: "hero-title" "hero-messages" "hero-paragraph" "hero-buttons" "hero-stats";
+}
+.landing-hero .icon-group {
+  grid-area: hero-icons;
+}
+.landing-hero .icon-group img {
+  height: 48px;
 }
 .landing-hero .landing-logo {
   max-width: 128px;
@@ -1144,7 +1155,7 @@ a {
 .landing-hero .statistics .icon-group {
   display: flex;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: 16px;
 }
 .landing-hero .statistics .icon-group img {
   height: 36px;
@@ -1256,7 +1267,7 @@ a {
     justify-items: unset;
     grid-template-columns: minmax(300px, 540px) auto;
     grid-template-rows: repeat(4, auto);
-    grid-template-areas: "hero-logo hero-messages" "hero-title hero-messages" "hero-paragraph hero-messages" "hero-buttons hero-messages" "hero-stats hero-messages";
+    grid-template-areas: "hero-title hero-messages" "hero-paragraph hero-messages" "hero-buttons hero-messages" "hero-stats hero-messages";
   }
   .landing-hero h1,
   .landing-hero h2,
@@ -1361,7 +1372,7 @@ section.landing-features .button-group {
 }
 
 .landing-whatsapp {
-  min-height: 400px;
+  min-height: 480px;
   display: flex;
   align-items: center;
   column-gap: 2rem;
@@ -1383,7 +1394,8 @@ section.landing-features .button-group {
   max-width: 420px;
 }
 .landing-whatsapp img {
-  height: 240px;
+  height: 280px;
+  border-radius: 24px;
 }
 .landing-whatsapp.la-wa2, .landing-whatsapp.dark {
   background: #060720;
@@ -1701,9 +1713,9 @@ section.stats .stat-card .body {
   color: #46464f;
 }
 .message-md {
-  width: fit-content;
-  padding: 16px 20px 16px 12px;
-  column-gap: 8px;
+  width: 420px;
+  padding: 16px 20px 16px 16px;
+  column-gap: 10px;
   border-radius: 24px;
 }
 .message-md:nth-child(even) {
@@ -1712,11 +1724,9 @@ section.stats .stat-card .body {
 .message-md .icon {
   align-self: flex-start;
 }
-.message-md svg {
-  width: 48px;
-}
 .message-md img {
-  height: 42px;
+  height: 45px;
+  width: 45px;
 }
 .message-md .content {
   row-gap: 4px;

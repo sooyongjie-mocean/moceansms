@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 import Nav from "./components/Nav";
 
@@ -12,62 +13,66 @@ function landing(props) {
       <Nav />
       <section id="hero" className="landing-wrapper">
         <div className="landing-hero">
-          <img
-            className="landing-logo"
-            src={require("./img/mocean-logo-full-dark.png")}
-            alt=""
-          />
+          {/* <div className="icon-group">
+              <img src={require("./img/laz_icon.png")} alt="" />
+              <img src={require("./img/shopee_logo.png")} alt="" />
+            </div> */}
           <h1>
             <span>Power up</span> your messaging game
           </h1>
           <p>
-            Send OTPs, notifications, and marketing SMS in the Philippines for
-            as low as $0.008 (PHP 0.463) per message — fast, reliable, and
-            effortless!
+            Enhance your communication strategy with our reliable SMS services
+            in the Philippines. Send OTPs, notifications, and marketing messages
+            for just $0.008 (PHP 0.463) per message. Experience fast,
+            dependable, and streamlined messaging solutions.
           </p>
           <div className="button-group">
             <button>Learn more</button>
             <button>Try for free</button>
           </div>
           <div className="statistics">
-            <h3>Securing 100 Million Texts Monthly</h3>
+            <h3>Omnichannel messaging ready</h3>
             <div className="icon-group">
-              <img src={require("./img/laz_icon.png")} alt="" />
-              <img src={require("./img/shopee_logo.png")} alt="" />
+              <img src={require("./img/icon_sms2.png")} alt="" />
+              <img src={require("./img/icon_wa.png")} alt="" />
             </div>
           </div>
-
+          <Turnstile siteKey="0x4AAAAAAA_lqJ0w01-K480l" />
           <div className="messages-wrapper">
             <div className="message message-md">
               <div className="icon">
-                <img src={require("./img/msg_cimb_icon.png")} alt="" />
+                <img src={require("./img/icon_msg_sms.png")} alt="" />
               </div>
               <div className="content">
-                <div className="title">CIMB Bank</div>
+                <div className="title">OTP</div>
                 <div className="body">
-                  RM0 CIMB: MYR 270.00 was charged on your card...
+                  Your verification Code is 232323. Please do not share it with
+                  anyone.
                 </div>
               </div>
             </div>
             <div className="message message-md sms">
               <div className="icon">
-                <img src={require("./img/msg_sms_icon.png")} alt="" />
+                <img src={require("./img/icon_msg_wa.png")} alt="" />
               </div>
               <div className="content">
-                <div className="title">Shopee</div>
+                <div className="title">Marketing SMS</div>
                 <div className="body">
-                  RM0 Shopee: 12.12 sales is coming! Enjoy up to ...
+                  Nakakuha ka ng Libreng Facial Treatment! Available para sa
+                  unang 50 bagong customer hanggang 30/9. I-click ang link para
+                  mag-redeem.
                 </div>
               </div>
             </div>
             <div className="message message-md">
               <div className="icon">
-                <img src={require("./img/msg_laz_icon.png")} alt="" />
+                <img src={require("./img/icon_msg_sms_2.png")} alt="" />
               </div>
               <div className="content">
-                <div className="title">CIMB Bank</div>
+                <div className="title">Alert SMS</div>
                 <div className="body">
-                  RM0 CIMB: MYR 270.00 was charged on your card...
+                  Your parcel has been delivered on Mar 4. Thank you for using
+                  our courier service.
                 </div>
               </div>
             </div>
@@ -85,55 +90,53 @@ function landing(props) {
         </p>
         <div className="feature-group">
           <div className="landing-feature">
-            <img src={require("./img/icon_campaign.png")} alt="" />
-            <h3 className="feature-title">Customer lists and drip campaigns</h3>
+            <img src={require("./img/icon_sms.png")} alt="" />
+            <h3 className="feature-title">SMS</h3>
             <p className="feature-description">
-              Segment customers into lists and run drip campaigns to share
-              targeted information.
+              Deliver and receive SMS messages in every country around the
+              world.
             </p>
           </div>
           <div className="landing-feature">
-            <img src={require("./img/icon_template.png")} alt="" />
-            <h3 className="feature-title">Custom fields and templates</h3>
+            <img src={require("./img/icon_verified.png")} alt="" />
+            <h3 className="feature-title">Verify</h3>
             <p className="feature-description">
-              Share messages across a team and reply with a shared inbox.
-              Administrators have full control over permissions.
-            </p>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_action.png")} alt="" />
-            <h3 className="feature-title">
-              Triggered actions from customer behavior
-            </h3>
-            <p className="feature-description">
-              Send automated replies with custom fields based on customer
-              response, time, or other behaviors.
-            </p>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_campaign.png")} alt="" />
-            <h3 className="feature-title">Customer lists and drip campaigns</h3>
-            <p className="feature-description">
-              Segment customers into lists and run drip campaigns to share
-              targeted information.
-            </p>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_template.png")} alt="" />
-            <h3 className="feature-title">Custom fields and templates</h3>
-            <p className="feature-description">
-              Share messages across a team and reply with a shared inbox.
-              Administrators have full control over permissions.
+              Prioritize security in your business, prevent the increasing
+              counts of frauds and scams, to ensure the top quality for your
+              business.
             </p>
           </div>
           <div className="landing-feature">
             <img src={require("./img/icon_action.png")} alt="" />
-            <h3 className="feature-title">
-              Triggered actions from customer behavior
-            </h3>
+            <h3 className="feature-title">Voice</h3>
             <p className="feature-description">
-              Send automated replies with custom fields based on customer
-              response, time, or other behaviors.
+              Lead the conversation by making, retrieving, controling and
+              monitoring calls to deliver a better customer experience
+            </p>
+          </div>
+          <div className="landing-feature">
+            <img src={require("./img/icon_person.png")} alt="" />
+            <h3 className="feature-title">Number Lookup</h3>
+            <p className="feature-description">
+              Reduce undeliverable messages, identify phone numbers by getting
+              information about it to learn about it validatity and much more.
+            </p>
+          </div>
+          <div className="landing-feature">
+            <img src={require("./img/icon_integration.png")} alt="" />
+            <h3 className="feature-title">Integration</h3>
+            <p className="feature-description">
+              Integrate Messaging service with your ecommerce business, and
+              build a better relationship with your buyers.
+            </p>
+          </div>
+          <div className="landing-feature">
+            <img src={require("./img/icon_coding.png")} alt="" />
+            <h3 className="feature-title">Developer Friendly</h3>
+            <p className="feature-description">
+              We offer a robust, reliable service. Our Gateway is built to
+              handle traffic redundancy, ensuring that no message is lost in the
+              process, regardless of the volume.
             </p>
           </div>
         </div>
@@ -144,14 +147,14 @@ function landing(props) {
       </section>
       <section className="landing-whatsapp la-wa2">
         <div className="landing-whatsapp-left">
-          <h2>WhatsApp is the future of Messaging</h2>
+          <h2>Trust Trust Trust</h2>
           <p>
-            Send marketing messages on WhatsApp using Broadcast or Flow on our
-            customer engagement solution Moments, or over our flexible WhatsApp
-            API.
+            Mocean is a trusted name in the SMS industry, having served over
+            (company num) businesses throughout our 21 years of experience. We
+            have sent over (sms_count) number of messages in the Philippines.
           </p>
         </div>
-        <img src={require("./img/wa_promo.png")} alt="" />
+        <img src={require("./img/server.jpg")} alt="" />
       </section>
       <section className="landing-whatsapp light">
         <div className="landing-whatsapp-left">

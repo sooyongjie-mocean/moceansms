@@ -42,7 +42,7 @@ function Nav() {
         </ul>
       </div>
       <div className="navbar-right">
-        <a href="https://broadcast.moceansms.com/login">
+        <a href="https://dashboard.moceanapi.com/login">
           <span>Log in</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

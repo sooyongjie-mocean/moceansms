@@ -10,8 +10,8 @@
       border-radius: 8px;
       font-size: 0.96rem;
       &:nth-child(1) {
-        border: 1px solid #fff;
-        color: #fff;
+        border: 1px solid #000;
+        color: #000;
       }
       &:nth-child(2) {
         color: #000;
@@ -26,10 +26,14 @@
     }
   }
 }
+#hero .button-group button:nth-child(1) {
+  border-color: #fff;
+  color: #fff !important;
+}
 
 .landing-wrapper {
   min-height: 100vh;
-  background-image: url("../img/landing.jpg");
+  background-image: url("../img/landing.webp");
   background-size: cover;
   background-position: center;
 
@@ -44,7 +48,13 @@
   column-gap: 8rem;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-template-areas: "hero-logo" "hero-title" "hero-messages" "hero-paragraph" "hero-buttons" "hero-stats";
+  grid-template-areas: "hero-title" "hero-messages" "hero-paragraph" "hero-buttons" "hero-stats";
+  .icon-group {
+    grid-area: hero-icons;
+    img {
+      height: 48px;
+    }
+  }
   .landing-logo {
     max-width: 128px;
   }
@@ -57,7 +67,7 @@
     grid-area: hero-stats;
 
     .icon-group {
-      @include flex-col(0.5rem);
+      @include flex-col(16px);
       img {
         height: 36px;
       }
@@ -168,7 +178,7 @@
     grid-template-columns: minmax(300px, 540px) auto;
     grid-template-rows: repeat(4, auto);
     grid-template-areas:
-      "hero-logo hero-messages" "hero-title hero-messages"
+      "hero-title hero-messages"
       "hero-paragraph hero-messages" "hero-buttons hero-messages" "hero-stats hero-messages";
 
     h1,
@@ -268,7 +278,7 @@ section.landing-features {
 }
 
 .landing-whatsapp {
-  min-height: 400px;
+  min-height: 480px;
   @include flex-col(2rem);
   background: #eaeaea;
   color: #fff;
@@ -288,7 +298,8 @@ section.landing-features {
     max-width: 420px;
   }
   img {
-    height: 240px;
+    height: 280px;
+    border-radius: 24px;
   }
   &.la-wa2,
   &.dark {
