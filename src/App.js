@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Nav />
       <section id="hero" className="hero">
-        <div className="text-wrapper">
+        <div className="tex t-wrapper">
           <h1>Omnichannel Messaging for businesses</h1>
           <ul>
             <li>SMS, WhatsApp, Voice support</li>

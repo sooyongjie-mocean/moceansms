@@ -1,13 +1,132 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import CountryDropdown from "./components/CountryDropdown"; // Adjust import path
+// import CountryRegionSelector from "./components/CountryRegionSelector";
+// import curl from "highlightjs-curl";
 import Nav from "./components/Nav";
-
 import "./styling/style.css";
 
-function landing(props) {
+function Landing() {
+  const codeSamples = {
+    php: {
+      code: `require_once '../vendor/autoload.php';
+
+$token = new Mocean\Client\Credentials\Basic(
+    'API_KEY_HERE', 
+    'API_SECRET_HERE'
+);
+$mocean = new Mocean\Client($token);
+
+$res = $mocean->message()->send([
+    'to' => '60123456789',
+    'from' => 'MOCEAN',
+    'text' => 'Hello World',
+]);
+
+echo $res;`,
+      language: "php",
+    },
+    python: {
+      code: `from moceansdk import Mocean,Client
+
+token = Client("API_KEY_HERE", "API_SECRET_HERE")
+mocean = Mocean(token)
+
+res = mocean.sms.create({
+    "from": "MOCEAN",
+    "to":"60123456789"    
+    "text": "Hello World"
+}).send()
+
+print(res)`,
+      language: "python",
+    },
+    nodejs: {
+      code: `const axios = require('axios');
+
+axios.post('https://api.example.com/sms', {
+    to: '+15551234567',
+    message: 'Hello from your API!'
+}, {
+    headers: {
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => {
+    console.log(response.data);
+})
+.catch(error => {
+    console.error(error);
+});`,
+      language: "javascript",
+    },
+    ruby: {
+      code: `require "moceansdk"
+
+token = Client.new("API_KEY_HERE", "API_SECRET_HERE")
+mocean = Mocean.new(token)
+
+res = mocean.sms.create({
+        "text"=>'Hello World',
+        "from"=>'MOCEAN',
+        "to"=>'60123456789'
+        }).send()
+
+puts res`,
+      language: "ruby",
+    },
+    java: {
+      code: `import mocean.system.*;
+
+class program {
+
+    public static void main(String [] args)
+    {
+        Client token = new Client(
+                            "API_KEY_HERE",
+                            "API_SECRET_HERE"
+                        );
+
+        Mocean mocean = new Mocean(token);
+
+        try
+        {
+            String res = mocean.sms()
+                         .setFrom("MOCEAN")
+                         .setTo("60123456789")
+                         .setText("Hello World")
+                         .send();
+            System.out.println(res);        
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}`,
+      language: "java",
+    },
+  };
+  const [activeTab, setActiveTab] = useState("php");
+
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [captchaStatus, setCaptchaStatus] = useState(false);
+
+  const handleCountryChange = (countryCode) => {
+    setSelectedCountry(countryCode);
+    console.log("Selected country in parent:", countryCode);
+    // You can perform other actions here based on the selected country
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(captchaStatus);
+  };
   return (
     <div className="landing-container">
       <Nav />
@@ -26,7 +145,7 @@ function landing(props) {
             for just $0.008 (PHP 0.463) per message. Experience fast,
             dependable, and streamlined messaging solutions.
           </p>
-          <div className="button-group">
+          <div className="button-group btn-group-2">
             <button>Learn more</button>
             <button>Try for free</button>
           </div>
@@ -37,7 +156,6 @@ function landing(props) {
               <img src={require("./img/icon_wa.png")} alt="" />
             </div>
           </div>
-          <Turnstile siteKey="0x4AAAAAAA_lqJ0w01-K480l" />
           <div className="messages-wrapper">
             <div className="message message-md">
               <div className="icon">
@@ -56,7 +174,7 @@ function landing(props) {
                 <img src={require("./img/icon_msg_wa.png")} alt="" />
               </div>
               <div className="content">
-                <div className="title">Marketing SMS</div>
+                <div className="title">Marketing Message</div>
                 <div className="body">
                   Nakakuha ka ng Libreng Facial Treatment! Available para sa
                   unang 50 bagong customer hanggang 30/9. I-click ang link para
@@ -107,7 +225,7 @@ function landing(props) {
             </p>
           </div>
           <div className="landing-feature">
-            <img src={require("./img/icon_action.png")} alt="" />
+            <img src={require("./img/icon_voice.png")} alt="" />
             <h3 className="feature-title">Voice</h3>
             <p className="feature-description">
               Lead the conversation by making, retrieving, controling and
@@ -140,37 +258,87 @@ function landing(props) {
             </p>
           </div>
         </div>
-        <div className="button-group">
+        <div className="button-group btn-group-2">
           <button>Learn more</button>
+          <button>Try for free</button>
+        </div>
+      </section>
+      <section id="feature-api" className="landing-features api-feature">
+        <h1 className="">
+          SMS API For <span>Developers</span>
+        </h1>
+        <p className="">
+          Implement SMS notifications, OTP, reminders etc. into your workflow
+          and build apps that send SMS with our redundant SSL SMS API. *
+        </p>
+        <div className="syntax-highlighter">
+          <div className="button-group">
+            <button
+              onClick={() => setActiveTab("php")}
+              className={activeTab === "php" ? "activeTab" : ""}
+            >
+              PHP
+            </button>
+            <button
+              onClick={() => setActiveTab("python")}
+              className={activeTab === "python" ? "activeTab" : ""}
+            >
+              Python
+            </button>
+            <button
+              onClick={() => setActiveTab("nodejs")}
+              className={activeTab === "nodejs" ? "activeTab" : ""}
+            >
+              NodeJS
+            </button>
+            <button
+              onClick={() => setActiveTab("ruby")}
+              className={activeTab === "ruby" ? "activeTab" : ""}
+            >
+              Ruby
+            </button>
+            <button
+              onClick={() => setActiveTab("java")}
+              className={activeTab === "java" ? "activeTab" : ""}
+            >
+              Java
+            </button>
+          </div>
+
+          <SyntaxHighlighter
+            language={codeSamples[activeTab].language}
+            style={atomOneLight}
+          >
+            {codeSamples[activeTab].code}
+          </SyntaxHighlighter>
+        </div>
+        <div className="button-group btn-group-2">
+          <button>Get API Key</button>
           <button>Try for free</button>
         </div>
       </section>
       <section className="landing-whatsapp la-wa2">
         <div className="landing-whatsapp-left">
-          <h2>Trust Trust Trust</h2>
+          <h2>
+            Over <span>Two Decades</span> of SMS Expertise
+          </h2>
+
           <p>
-            Mocean is a trusted name in the SMS industry, having served over
-            (company num) businesses throughout our 21 years of experience. We
-            have sent over (sms_count) number of messages in the Philippines.
+            With over two decades of experience, we've not only witnessed the
+            evolution of SMS, but we've actively shaped it. Our commitment to
+            innovation ensures that you receive cutting-edge solutions, built on
+            a foundation of proven success.
+          </p>
+          <p>
+            Leverage our 20+ years of experience for your SMS needs. We provide
+            reliable, expert solutions you can count on
           </p>
         </div>
-        <img src={require("./img/server.jpg")} alt="" />
-      </section>
-      <section className="landing-whatsapp light">
-        <div className="landing-whatsapp-left">
-          <h2>Technology & Reliability</h2>
-          <p>
-            Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
-            uptime, and seamless reach across all networks in the Philippines.
-          </p>
-          <p>
-            MOCEAN’s secure and scalable SMS API seamlessly integrates with your
-            systems for effortless automation.
-          </p>
-        </div>
-        <img src={require("./img/wa_promo.png")} alt="" />
+        <img src={require("./img/server.webp")} alt="" />
       </section>
       <section className="landing-whatsapp dark">
+        <img src={require("./img/ph_flag.webp")} alt="" />
+
         <div className="landing-whatsapp-left">
           <h2>Compliance & Security</h2>
           <p>
@@ -183,44 +351,210 @@ function landing(props) {
             connections to Philippines telecom networks.
           </p>
         </div>
-        <img src={require("./img/wa_promo.png")} alt="" />
+      </section>
+      <section className="landing-whatsapp dark last">
+        <div className="landing-whatsapp-left">
+          <h2>Technology & Reliability</h2>
+          <p>
+            Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
+            uptime, and seamless reach across all networks in the Philippines.
+          </p>
+          <p>
+            MOCEAN’s secure and scalable SMS API seamlessly integrates with your
+            systems for effortless automation.
+          </p>
+        </div>
+        <img src={require("./img/work.webp")} alt="" />
       </section>
       <section id="footer" className="landing-footer">
         <div className="landing-closing">
           <h2>Enterprise Business Text Messaging Features</h2>
           <p>
-            Reach your customers on their favorite messaging channels using an
-            intuitive, secure, and powerful business texting platform.
+            Trial account: No risk, just results! Reach your customers on their
+            favorite messaging channels using an intuitive, secure, and powerful
+            business texting platform.
           </p>
-          <div className="button-group">
-            <button>Contact us</button>
-            <button>Try for free</button>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="input-wrapper">
+              <label htmlFor="">Email</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="">Name</label>
+              <input type="name" id="name" required placeholder="Your name" />
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="">Country</label>
+              <CountryDropdown onCountryChange={handleCountryChange} />
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="">Message</label>
+              <textarea
+                type="name"
+                id="name"
+                required
+                placeholder="Your message here"
+              />
+            </div>
+            <button type="submit">Submit</button>
+
+            <Turnstile
+              siteKey="0x4AAAAAAA_lqJ0w01-K480l"
+              onError={() => setCaptchaStatus(false)}
+              onExpire={() => setCaptchaStatus(false)}
+              onSuccess={() => setCaptchaStatus(true)}
+            />
+          </form>
         </div>
         <footer>
-          <img src={require("./img/mocean-logo-full.png")} alt="" />
-          <p>
-            Send SMS messages quickly and easily. Manage your campaigns, track
-            deliveries, and connect with your audience anytime, anywhere.
-          </p>
-          <div className="WHAT-GROUP">
-            <p>2025 © Micro Ocean Technologies Sdn. Bhd.</p>
-            <div className="landing-footer-links-contacts">
-              <Link to="https://google.com">
-                <img src={require("./img/whatsapp-icon.png")} alt="" />
-              </Link>
-              <Link to="https://google.com">
-                <img src={require("./img/messenger-icon.png")} alt="" />
-              </Link>
-              <Link to="https://google.com">
-                <img src={require("./img/email-icon.png")} alt="" />
-              </Link>
-            </div>
+          <div className="wrapper">
+            <img src={require("./img/mocean-logo-full.png")} alt="" />
+            <p>
+              Send SMS messages quickly and easily. Manage your campaigns, track
+              deliveries, and connect with your audience anytime, anywhere.
+            </p>
+          </div>
+          <div className="wrapper-col">
+            <ul>
+              <h3>Products</h3>
+              <li>
+                <Link to="https://moceanapi.com/sms/">SMS</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/whatsapp/">WhatsApp</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/voice/">Voice</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/verify/">Verify</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/number-lookup/">
+                  Number Lookup
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/intergration/">
+                  Integration
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <h3>Documents</h3>
+              <li>
+                <Link to="https://moceanapi.com/docs/#sms-api/">SMS API</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/docs/#whatsapp-api/">
+                  WhatsApp API
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/docs/#voice-api/">
+                  Voice API
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/docs/#verify-api/">
+                  Verify API
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/docs/#number-lookup-api/">
+                  Number Lookup API
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/developer/libraries">
+                  SDK & Libraries
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/developer/libraries">
+                  Tools
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <h3>Resources</h3>
+              <li>
+                <Link to="https://moceanapi.com/resources/use-case/">
+                  Use Case
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/pricing/">Pricing</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/support/">Support</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/faq/">FAQ</Link>
+              </li>
+            </ul>
+            <ul>
+              <h3>Company</h3>
+              <li>
+                <Link to="https://moceanapi.com/use-case/">About Us</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/sms/">Contact</Link>
+              </li>
+              <li>
+                <Link to="https://dashboard.moceanapi.com/login/">Login</Link>
+              </li>
+              <li>
+                <Link to="https://dashboard.moceanapi.com/register/">
+                  Sign up
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <h3>Legal</h3>
+              <li>
+                <Link to="https://moceanapi.com/legal/terms/">
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/legal/privacy/">Privacy</Link>
+              </li>
+              <li>
+                <Link to="https://moceanapi.com/legal/refund-policy/">
+                  Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="https://www.paypal.com/ie/legalhub/paypal/acceptableuse-full">
+                  Paypal Acceptable
+                </Link>
+              </li>
+            </ul>
           </div>
         </footer>
+        <div className="WHAT-GROUP">
+          <p>2025 © Micro Ocean Technologies Sdn. Bhd.</p>
+          <div className="landing-footer-links-contacts">
+            <Link to="https://moceanapi.com/sms/.com">
+              <img src={require("./img/whatsapp-icon.png")} alt="" />
+            </Link>
+            <Link to="https://moceanapi.com/sms/.com">
+              <img src={require("./img/messenger-icon.png")} alt="" />
+            </Link>
+            <Link to="https://moceanapi.com/sms/.com">
+              <img src={require("./img/email-icon.png")} alt="" />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );
 }
 
-export default landing;
+export default Landing;

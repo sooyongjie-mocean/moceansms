@@ -6,9 +6,11 @@
     "@marsidev/react-turnstile": "^1.1.0",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
+    "react-country-region-selector": "^4.0.2",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "scripts": {
     "start": "react-scripts start",

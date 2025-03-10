@@ -7,7 +7,7 @@ nav {
   grid-template-areas: "nav-left nav-center nav-right";
   grid-template-columns: 21rem auto 21rem;
   justify-content: space-between;
-  align-items: center;  
+  align-items: center;
   column-gap: 60px;
   width: calc(100% - 4rem);
   background: unset;
@@ -22,11 +22,17 @@ nav {
   .navbar-left {
     grid-area: nav-left;
     justify-self: start;
+    img {
+      height: 16px;
+      &:last-child {
+        display: none;
+      }
+    }
   }
   .navbar-center {
     width: 100%;
     max-height: fit-con tent;
-    @include flex-col-center(.5rem);
+    @include flex-col-center(0.5rem);
     grid-area: nav-center;
     ul {
       width: 100%;
@@ -45,17 +51,17 @@ nav {
     }
   }
   .navbar-right {
-    @include flex-col-center(.5rem);
+    @include flex-col-center(0.5rem);
     justify-self: end;
     grid-area: nav-right;
 
     button,
     a {
       background: unset;
-      padding: .5rem .75rem;
+      padding: 0.5rem 0.75rem;
       border-radius: 1rem;
       color: #fff;
-      @include flex-col-center(.25rem);
+      @include flex-col-center(0.25rem);
       &:nth-child(2) {
         background: white !important;
         color: black;
@@ -76,9 +82,15 @@ nav {
       rgba(0, 0, 0, 0.02) 0px 1px 1px 0.5px,
       rgba(0, 0, 0, 0.02) 0px 3px 3px 1.5px,
       rgba(0, 0, 0, 0.02) 0px 6px 6px -3px,
-      rgba(0, 0, 0, 0.02) 0px .75rem .75rem -6px,
-      rgba(0, 0, 0, 0.02) 0px 2.25rem 2.25rem -.75rem;
+      rgba(0, 0, 0, 0.02) 0px 0.75rem 0.75rem -6px,
+      rgba(0, 0, 0, 0.02) 0px 2.25rem 2.25rem -0.75rem;
     transition: 0.3s ease-in-out;
+    img {
+      display: none;
+      &:last-child {
+        display: unset;
+      }
+    }
 
     .navbar-center {
       &.hidden {
@@ -91,7 +103,7 @@ nav {
       a {
         width: max-content;
         font-size: 1rem;
-        padding: .75rem 1rem !important;
+        padding: 0.75rem 1rem !important;
         &:nth-child(1) {
           background: #000;
           color: #fff;
@@ -164,7 +176,7 @@ nav {
   }
   @media screen and (max-width: 800px) {
     width: calc(100% - 2.25rem) !important;
-    padding: 1rem .75rem 1rem 2.25rem;
+    padding: 1rem 0.75rem 1rem 2.25rem;
   }
 
   @media screen and (max-width: 450px) {

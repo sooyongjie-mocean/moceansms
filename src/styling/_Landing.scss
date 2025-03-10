@@ -9,6 +9,8 @@
       background: unset;
       border-radius: 8px;
       font-size: 0.96rem;
+    }
+    &.btn-group-2 button {
       &:nth-child(1) {
         border: 1px solid #000;
         color: #000;
@@ -17,6 +19,46 @@
         color: #000;
         background: #ffc827;
       }
+    }
+  }
+
+  form {
+    @include flex-row(1rem);
+    @include flex-row-center(16px);
+    button {
+      padding: 10px 16px;
+      width: fit-content;
+      border-radius: 8px;
+    }
+  }
+  .input-wrapper {
+    @include flex-row(8px);
+    input,
+    textarea,
+    select {
+      padding: 14px 16px;
+      width: 360px;
+      font-size: 0.95rem;
+      border-radius: 16px;
+      border: #fff;
+      color: #333;
+      padding-right: 25px;
+      &::placeholder {
+        color: #777;
+      }
+    }
+    select {
+      appearance: none; /* Remove default browser styling */
+      background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>'); /* Custom arrow icon */
+      background-repeat: no-repeat;
+      background-position: right 12px center; /* Position the arrow */
+      background-size: 7px;
+    }
+    textarea {
+      height: 120px;
+    }
+    label {
+      font-size: 0.9rem;
     }
   }
 
@@ -154,14 +196,13 @@
     margin-bottom: 1rem;
   }
   .messages-wrapper {
-    width: 480px;
+    max-width: 480px;
     grid-area: hero-messages;
     align-self: center;
     margin-bottom: 24px;
     @media screen and (max-width: 1256px) {
       width: max-content;
       .message-md {
-        width: 100%;
         padding: 14px 20px 14px 12px;
         border-radius: 22px;
       }
@@ -272,21 +313,95 @@ section.landing-features {
       font-size: 0.9rem;
     }
   }
+}
+
+.api-feature {
+  background: #f9f7f6 !important;
+}
+
+.syntax-highlighter {
+  background-color: #eaeaea;
+  border-radius: 16px;
+  border: 1px solid #dadada;
+  padding: 16px 16px 16px 16px;
+
   .button-group {
-    margin-top: 1rem;
+    padding-bottom: 8px;
+    overflow-x: auto;
+    button {
+      transition: 0.08s ease-out;
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background-color: #cecece;
+        outline: none;
+      }
+    }
+    button.activeTab {
+      background-color: #0d65c5;
+      color: #fff;
+    }
+  }
+  pre {
+    margin: 0 !important;
+    margin-top: 4px !important;
+    height: 280px;
+    width: 600px;
+    padding: 16px !important;
+    background: #fff !important;
+    border-radius: 16px;
+    box-shadow: 12px 12px 36px 67% #bebebe;
+    scrollbar-width: thin; /* Or auto, thin */
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* thumb track 
+    /* For WebKit browsers (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+      width: 8px; /* Adjust width as needed */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent; /* Or a very light background */
+      border-radius: 4px; /* Optional rounded corners */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2); /* Subtle color */
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+    }
+    code {
+      font-size: 0.9rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    &,
+    pre {
+      width: 100%;
+    }
   }
 }
 
 .landing-whatsapp {
-  min-height: 480px;
-  @include flex-col(2rem);
+  min-height: 360px;
+  @include flex-col(4rem);
   background: #eaeaea;
   color: #fff;
-  // color: #fef5eb;
+  padding-top: 120px;
+  padding-bottom: 0px;
+
+  //# please CHANGE this later
+  &.last {
+    padding-bottom: 120px !important;
+  }
   h2 {
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
+  }
+  span {
+    color: #1489ea !important;
   }
   p {
     line-height: 1.5rem;
@@ -295,10 +410,10 @@ section.landing-features {
     margin-left: 1.5rem;
   }
   &-left {
-    max-width: 420px;
+    max-width: 560px;
   }
   img {
-    height: 280px;
+    width: 280px;
     border-radius: 24px;
   }
   &.la-wa2,
@@ -316,16 +431,19 @@ section.landing-features {
   }
 }
 
+/*
+ * Footer 
+*/
+
 .landing-footer {
   min-height: 65vh;
-  background-color: #f7f7fb;
+  background-color: #e5e5e9;
   padding-top: 40px;
   padding-bottom: 16px;
   @include flex-row(1rem);
   .landing-closing {
     padding: 8rem 0;
     @include flex-row-center(1rem);
-    text-align: center;
   }
   .button-group button {
     &:first-child {
@@ -335,17 +453,12 @@ section.landing-features {
   }
   footer {
     width: 100%;
-    max-width: 920px;
-    @include flex-row(1rem);
+    @include flex-col(4rem);
+    justify-content: space-between;
+    align-items: start;
     p {
       color: #001418;
       font-size: 14px;
-    }
-    @include flex-row(0rem);
-    .WHAT-GROUP {
-      width: 100%;
-      @include flex-col-center(0.5rem);
-      justify-content: space-between;
     }
     p {
       width: 300px;
@@ -361,6 +474,40 @@ section.landing-features {
         text-decoration: underline;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      @include flex-row(4rem);
+    }
+
+    .wrapper-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      row-gap: 2rem;
+      column-gap: 4rem;
+      @media screen and (min-width: 1256px) {
+        display: flex;
+      }
+      @media screen and (max-width: 1256px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      ul {
+        width: 120px;
+        @include flex-row(4px);
+        list-style: none !important;
+      }
+    }
+  }
+
+  .WHAT-GROUP {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
   }
   &-links {
     &-contacts {

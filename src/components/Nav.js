@@ -25,7 +25,8 @@ function Nav() {
   return (
     <nav className={`navbar ${fix ? "onscroll" : ""}`}>
       <div className="navbar-left">
-        <h3>Mocean</h3>
+      <img src={require("../img/mocean-logo-full-dark.png")} alt="" />
+      <img src={require("../img/mocean-logo-full.png")} alt="" />
       </div>
       <div className={`navbar-center ${showNavLinks ? "hidden" : ""}`}>
         <ul>
@@ -54,7 +55,7 @@ function Nav() {
             <path d="M478.09-135.87v-83h263.04v-522.26H478.09v-83h263.04q34.48 0 58.74 24.26 24.26 24.26 24.26 58.74v522.26q0 34.48-24.26 58.74-24.26 24.26-58.74 24.26H478.09Zm-79.42-164.65-58.89-58.41 79.57-79.57H135.87v-83h283.48l-79.57-79.57 58.89-58.41L577.91-480 398.67-300.52Z" />
           </svg>
         </a>
-        <a href="https://broadcast.moceansms.com/user/new">Sign up</a>
+        <a href="https://dashboard.moceanapi.com/register">Sign up</a>
         <button onClick={handleNavVisibility}>
           <svg
             className="ham-icon"
