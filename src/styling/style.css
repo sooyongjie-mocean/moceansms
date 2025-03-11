@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -30,6 +37,13 @@ a {
   text-decoration: unset;
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -240,7 +254,7 @@ nav.onscroll .navbar-right svg.ham-icon {
     padding: 1rem 0.75rem 1rem 2.25rem;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 540px) {
   nav .navbar-right button:nth-child(1),
   nav .navbar-right a:nth-child(1) {
     display: none;
@@ -255,6 +269,13 @@ nav.onscroll .navbar-right svg.ham-icon {
   }
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -385,6 +406,13 @@ section.hero .message-md {
   }
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -477,6 +505,13 @@ a {
   }
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -649,6 +684,13 @@ a {
   }
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -739,6 +781,13 @@ a {
   padding: 0px 24px 12px 24px;
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -834,6 +883,13 @@ section.faq .accordian-details {
   }
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -1073,6 +1129,13 @@ a {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Handel Gothic BT";
+  src: url("../fonts/Handel Gothic BT.ttf");
+  font-weight: normal; /* Define the font weight (e.g., normal, bold, 400, 700) */
+  font-style: normal; /* Define the font style (e.g., normal, italic) */
+  font-display: swap; /* Optional: Controls font loading behavior */
+}
 h1,
 h2,
 h3,
@@ -1371,8 +1434,10 @@ section.landing-features h1 {
 @media screen and (max-width: 1256px) {
   section.landing-features h1 {
     width: unset;
-    text-align: initial;
   }
+}
+section.landing-features p {
+  text-align: center;
 }
 section.landing-features p:nth-child(1) {
   width: 740px;
@@ -1393,6 +1458,9 @@ section.landing-features .feature-group {
 section.landing-features .feature-group .landing-feature {
   width: 100%;
   max-width: 300px;
+}
+section.landing-features .feature-group .landing-feature p {
+  text-align: unset;
 }
 @media screen and (max-width: 1256px) {
   section.landing-features .feature-group {
@@ -1554,7 +1622,7 @@ section.landing-features .landing-feature p {
 /*
  * Footer 
 */
-.landing-footer {
+.contact-us {
   min-height: 65vh;
   background-color: #e5e5e9;
   padding-top: 40px;
@@ -1563,7 +1631,7 @@ section.landing-features .landing-feature p {
   flex-direction: column;
   row-gap: 1rem;
 }
-.landing-footer .landing-closing {
+.contact-us .landing-closing {
   padding: 8rem 0;
   display: flex;
   flex-direction: column;
@@ -1571,111 +1639,166 @@ section.landing-features .landing-feature p {
   align-items: center;
   row-gap: 1rem;
 }
-.landing-footer .button-group button:first-child {
+.contact-us .button-group button:first-child {
   border-color: #000;
   color: #000;
 }
-.landing-footer footer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  column-gap: 4rem;
-  justify-content: space-between;
-  align-items: start;
-}
-.landing-footer footer p {
-  color: #001418;
-  font-size: 14px;
-}
-.landing-footer footer p {
-  width: 300px;
-}
-.landing-footer footer img {
-  width: 100px;
-  max-width: max-content;
-}
-.landing-footer footer a {
-  color: #001418;
-  font-size: 14px;
-}
-.landing-footer footer a:hover {
-  text-decoration: underline;
-}
-@media screen and (max-width: 768px) {
-  .landing-footer footer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 4rem;
-  }
-}
-.landing-footer footer .wrapper-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  row-gap: 2rem;
-  column-gap: 4rem;
-}
-@media screen and (min-width: 1256px) {
-  .landing-footer footer .wrapper-col {
-    display: flex;
-  }
-}
-@media screen and (max-width: 1256px) {
-  .landing-footer footer .wrapper-col {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media screen and (max-width: 768px) {
-  .landing-footer footer .wrapper-col {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-.landing-footer footer .wrapper-col ul {
-  width: 120px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
-  list-style: none !important;
-}
-.landing-footer .WHAT-GROUP {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-}
-.landing-footer-links-contacts {
+.contact-us-links-contacts {
   display: flex;
   align-items: center;
   column-gap: 0.75rem;
 }
-.landing-footer-links-contacts img {
+.contact-us-links-contacts img {
   height: 1.25rem;
 }
-.landing-footer-links a {
+.contact-us-links a {
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 0;
   font-weight: 500;
 }
-.landing-footer-links a img {
+.contact-us-links a img {
   margin-right: 0.25rem;
 }
-.landing-footer-links a span {
+.contact-us-links a span {
   font-size: 0.9rem;
   color: #93a7ad;
 }
-.landing-footer-links h4 {
+.contact-us-links h4 {
   margin-bottom: 0.75rem;
   font-weight: 500;
   font-size: 0.9rem;
 }
-.landing-footer-links a {
+.contact-us-links a {
   font-size: 0.9rem;
   color: #001418;
 }
-.landing-footer-links a:hover {
+.contact-us-links a:hover {
   text-decoration: underline;
+}
+
+section.landing-footer {
+  background: #e5e5e9;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4rem;
+}
+section.landing-footer footer {
+  width: max-content;
+  display: grid;
+  column-gap: 120px;
+  align-content: space-between;
+  grid-template-areas: "footer-logo footer-links" "footer-legal footer-legal";
+}
+section.landing-footer footer p {
+  color: #001418;
+  font-size: 14px;
+}
+section.landing-footer footer p {
+  width: 300px;
+}
+section.landing-footer footer img {
+  width: 100px;
+  max-width: max-content;
+}
+section.landing-footer footer a {
+  color: #001418;
+  font-size: 14px;
+}
+section.landing-footer footer a:hover {
+  text-decoration: underline;
+}
+section.landing-footer footer .footer-logo {
+  grid-area: footer-logo;
+}
+section.landing-footer footer .footer-links {
+  width: 100%;
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  grid-area: footer-links;
+}
+section.landing-footer footer .footer-links h3 {
+  color: #111;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+section.landing-footer footer .footer-links ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  list-style: none !important;
+}
+section.landing-footer footer .footer-links ul a {
+  color: #555;
+}
+section.landing-footer footer .footer-legal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  grid-area: footer-legal;
+}
+section.landing-footer footer .footer-legal img {
+  width: 20px;
+}
+section.landing-footer footer .footer-legal .footer-socials {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+@media screen and (min-width: 1536px) {
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(5, 160px);
+    column-gap: 4rem;
+  }
+}
+@media screen and (max-width: 1536px) {
+  section.landing-footer footer .footer-links {
+    width: 100%;
+    grid-template-columns: repeat(5, 120px);
+    column-gap: 4rem;
+  }
+}
+@media screen and (max-width: 1256px) {
+  section.landing-footer footer {
+    width: 100%;
+    align-content: space-between;
+    column-gap: 0;
+  }
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(3, 120px);
+    justify-content: end;
+    column-gap: 2rem;
+  }
+}
+@media screen and (max-width: 860px) {
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(3, 100px);
+  }
+}
+@media screen and (max-width: 768px) {
+  section.landing-footer footer {
+    row-gap: 2rem;
+    grid-template-areas: "footer-logo" "footer-links" "footer-legal";
+  }
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(3, 160px);
+    justify-content: start;
+  }
+}
+@media screen and (max-width: 600px) {
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(2, 160px);
+  }
+}
+@media screen and (max-width: 500px) {
+  section.landing-footer footer .footer-links {
+    grid-template-columns: repeat(2, 140px);
+  }
 }
 
 .material-symbols-outlined {

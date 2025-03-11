@@ -13,102 +13,84 @@ import "./styling/style.css";
 function Landing() {
   const codeSamples = {
     php: {
-      code: `require_once '../vendor/autoload.php';
-
-$token = new Mocean\Client\Credentials\Basic(
-    'API_KEY_HERE', 
-    'API_SECRET_HERE'
+      code: `<?php
+$mocean = new \Mocean\Client(
+        new \Mocean\Client\Credentials\Basic('API_KEY_HERE', 'API_SECRET_HERE')
 );
-$mocean = new Mocean\Client($token);
 
-$res = $mocean->message()->send([
-    'to' => '60123456789',
-    'from' => 'MOCEAN',
-    'text' => 'Hello World',
+$result = $mocean->message()->send([
+    'mocean-to' => '60123456789',
+    'mocean-from' => 'MOCEAN',
+    'mocean-text' => 'Hello World',
+    'mocean-resp-format' => 'json'
 ]);
 
-echo $res;`,
+echo $result;
+?>`,
       language: "php",
     },
     python: {
-      code: `from moceansdk import Mocean,Client
+      code: `from moceansdk import Client, Basic, Transmitter
 
-token = Client("API_KEY_HERE", "API_SECRET_HERE")
-mocean = Mocean(token)
+mocean = Client(
+    Basic("API_KEY_HERE", "API_SECRET_HERE")
+)
 
 res = mocean.sms.create({
-    "from": "MOCEAN",
-    "to":"60123456789"    
-    "text": "Hello World"
+    "mocean-from": "MOCEAN",
+    "mocean-to": 60123456789,
+    "mocean-text": "Hello World"
 }).send()
 
 print(res)`,
       language: "python",
     },
     nodejs: {
-      code: `const axios = require('axios');
+      code: `const moceansdk = require('mocean-sdk');
 
-axios.post('https://api.example.com/sms', {
-    to: '+15551234567',
-    message: 'Hello from your API!'
-}, {
-    headers: {
-        'Authorization': 'Bearer YOUR_API_KEY',
-        'Content-Type': 'application/json'
-    }
-})
-.then(response => {
-    console.log(response.data);
-})
-.catch(error => {
-    console.error(error);
+const mocean = new moceansdk.Mocean(
+        new moceansdk.Client('API_KEY_HERE', 'API_SECRET_HERE')
+);
+
+mocean.sms().send({
+  mocean-from: 'MOCEAN',
+  mocean-to: '60123456789',
+  mocean-text: 'Hello World'
+}, function(err, res) {
+  if(err) throw err;
+
+  console.log(res);
 });`,
       language: "javascript",
     },
     ruby: {
-      code: `require "moceansdk"
+      code: `require 'moceansdk'
 
-token = Client.new("API_KEY_HERE", "API_SECRET_HERE")
-mocean = Mocean.new(token)
+mocean = Moceansdk::Client.new(
+    Moceansdk::Auth::Basic.new('API_KEY_HERE', 'API_SECRET_HERE')
+)
 
 res = mocean.sms.create({
-        "text"=>'Hello World',
-        "from"=>'MOCEAN',
-        "to"=>'60123456789'
+        "mocean-text"=>'Hello World',
+        "mocean-from"=>'MOCEAN',
+        "mocean-to"=>'60123456789'
         }).send()
 
-puts res`,
+print res`,
       language: "ruby",
     },
     java: {
-      code: `import mocean.system.*;
+      code: `Mocean mocean = new Mocean(
+                new Basic("API_KEY_HERE", "API_SECRET_HERE")
+);
 
-class program {
+String res = mocean.sms()
+             .setFrom("MOCEAN")
+             .setTo("60123456789")
+             .setText("Hello World")
+             .send();
 
-    public static void main(String [] args)
-    {
-        Client token = new Client(
-                            "API_KEY_HERE",
-                            "API_SECRET_HERE"
-                        );
-
-        Mocean mocean = new Mocean(token);
-
-        try
-        {
-            String res = mocean.sms()
-                         .setFrom("MOCEAN")
-                         .setTo("60123456789")
-                         .setText("Hello World")
-                         .send();
-            System.out.println(res);        
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-}`,
+System.out.println(res);`,
       language: "java",
     },
   };
@@ -116,13 +98,14 @@ class program {
 
   const [selectedCountry, setSelectedCountry] = useState("");
   const [captchaStatus, setCaptchaStatus] = useState(false);
+  // React Turnstile - reCaptcha
 
   const handleCountryChange = (countryCode) => {
     setSelectedCountry(countryCode);
     console.log("Selected country in parent:", countryCode);
-    // You can perform other actions here based on the selected country
   };
 
+  // Form handling
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(captchaStatus);
@@ -268,8 +251,11 @@ class program {
           SMS API For <span>Developers</span>
         </h1>
         <p className="">
-          Implement SMS notifications, OTP, reminders etc. into your workflow
-          and build apps that send SMS with our redundant SSL SMS API. *
+          Build powerful SMS capabilities into your applications with our
+          intuitive SMS API. Our API offers seamless integration, comprehensive
+          documentation, and reliable message delivery. Get started quickly and
+          effortlessly enhance your applications with reliable SMS
+          functionality.
         </p>
         <div className="syntax-highlighter">
           <div className="button-group">
@@ -313,8 +299,8 @@ class program {
           </SyntaxHighlighter>
         </div>
         <div className="button-group btn-group-2">
-          <button>Get API Key</button>
-          <button>Try for free</button>
+          <button>View SDK & Library</button>
+          <button>Documentation</button>
         </div>
       </section>
       <section className="landing-whatsapp la-wa2">
@@ -366,7 +352,7 @@ class program {
         </div>
         <img src={require("./img/work.webp")} alt="" />
       </section>
-      <section id="footer" className="landing-footer">
+      <section id="footer" className="contact-us">
         <div className="landing-closing">
           <h2>Enterprise Business Text Messaging Features</h2>
           <p>
@@ -405,21 +391,26 @@ class program {
 
             <Turnstile
               siteKey="0x4AAAAAAA_lqJ0w01-K480l"
+              options={{
+                theme: "light",
+              }}
               onError={() => setCaptchaStatus(false)}
               onExpire={() => setCaptchaStatus(false)}
               onSuccess={() => setCaptchaStatus(true)}
             />
           </form>
         </div>
+      </section>
+      <section className="landing-footer">
         <footer>
-          <div className="wrapper">
+          <div className="footer-logo">
             <img src={require("./img/mocean-logo-full.png")} alt="" />
             <p>
               Send SMS messages quickly and easily. Manage your campaigns, track
               deliveries, and connect with your audience anytime, anywhere.
             </p>
           </div>
-          <div className="wrapper-col">
+          <div className="footer-links">
             <ul>
               <h3>Products</h3>
               <li>
@@ -537,21 +528,21 @@ class program {
               </li>
             </ul>
           </div>
-        </footer>
-        <div className="WHAT-GROUP">
-          <p>2025 © Micro Ocean Technologies Sdn. Bhd.</p>
-          <div className="landing-footer-links-contacts">
-            <Link to="https://moceanapi.com/sms/.com">
-              <img src={require("./img/whatsapp-icon.png")} alt="" />
-            </Link>
-            <Link to="https://moceanapi.com/sms/.com">
-              <img src={require("./img/messenger-icon.png")} alt="" />
-            </Link>
-            <Link to="https://moceanapi.com/sms/.com">
-              <img src={require("./img/email-icon.png")} alt="" />
-            </Link>
+          <div className="footer-legal">
+            <p>2025 © Micro Ocean Technologies Sdn. Bhd.</p>
+            <div className="footer-socials">
+              <Link to="https://moceanapi.com/sms/.com">
+                <img src={require("./img/whatsapp-icon.png")} alt="" />
+              </Link>
+              <Link to="https://moceanapi.com/sms/.com">
+                <img src={require("./img/messenger-icon.png")} alt="" />
+              </Link>
+              <Link to="https://moceanapi.com/sms/.com">
+                <img src={require("./img/email-icon.png")} alt="" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </footer>
       </section>
     </div>
   );
