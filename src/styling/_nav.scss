@@ -133,7 +133,7 @@ nav {
     grid-template-areas:
       "nav-left nav-right"
       "nav-center nav-center";
-    border-radius: 2rempx;
+    border-radius: 24px;
     &.onscroll {
       height: auto;
       width: calc(100% - 72px);

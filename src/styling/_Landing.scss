@@ -10,12 +10,12 @@
       border-radius: 8px;
       font-size: 0.96rem;
     }
-    &.btn-group-2 button {
-      &:nth-child(1) {
+    &.btn-group-2 a { // <a> wrapped around <button>
+      &:nth-child(1) button {
         border: 1px solid #000;
         color: #000;
       }
-      &:nth-child(2) {
+      &:nth-child(2) button {
         color: #000;
         background: #ffc827;
       }
@@ -124,10 +124,13 @@
     font-size: 2.25rem;
     grid-area: hero-title;
   }
-  p {
-    color: #fff;
+  .landing-body {
+    @include flex-row(1rem);
     grid-area: hero-paragraph;
-    margin: 0px;
+    p {
+      color: #fff;
+      margin: 0px;
+    }
   }
   span {
     color: #a0c5d9;
@@ -142,46 +145,6 @@
   h2,
   p {
     max-width: 500px;
-  }
-  form {
-    width: 100%;
-    max-width: 400px;
-    @include flex-row(1rem);
-    padding: 1.6rem 1.6rem;
-    background: #f4f5f6;
-    border-radius: 24px;
-    grid-area: hero-form;
-    h2 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      text-align: center;
-      margin-top: 12px;
-      margin-bottom: 20px;
-    }
-    .input-group {
-      @include flex-row(0.5rem);
-    }
-    label {
-      font-size: 0.8rem;
-    }
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.6rem 0.75rem;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      border: 1px solid #dadada;
-    }
-    textarea {
-      height: 92px;
-    }
-    button {
-      height: 40px;
-      width: 100%;
-      background: #2f474d !important;
-      color: #fff;
-      border-radius: 8px;
-    }
   }
   .landing-logo {
     margin-bottom: 2rem;
@@ -229,6 +192,12 @@
     }
   }
 
+  @media screen and (max-width: 1256px) {
+    .statistics .icon-group {
+      @include flex-col-center(16px);
+    }
+  }
+
   @media screen and (max-width: 500px) {
     h1,
     h2,
@@ -256,9 +225,12 @@ section.landing-features {
     }
   }
   p {
+    // max-width: 50%;
     text-align: center;
-    &:nth-child(1) {
-      width: 740px;
+
+    &:nth-child(2) {
+      width: 80%;
+      max-width: 800px;
     }
   }
   @media screen and (max-width: 1256px) {
@@ -498,6 +470,7 @@ section.landing-footer {
     width: max-content;
     display: grid;
     column-gap: 120px;
+    row-gap: 2rem;
     align-content: space-between;
     grid-template-areas:
       "footer-logo footer-links"
@@ -520,6 +493,15 @@ section.landing-footer {
     }
     .footer-logo {
       grid-area: footer-logo;
+      h2 {
+        font-family: Handel Gothic BT;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #eaeaea;
+      }
+      p {
+        color: #aaa;
+      }
     }
 
     .footer-links {
@@ -529,7 +511,7 @@ section.landing-footer {
       column-gap: 2rem;
       grid-area: footer-links;
       h3 {
-        color: #83781B;
+        color: #ffd147;
         font-size: 1rem;
         margin-bottom: 4px;
       }

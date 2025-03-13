@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
+import { ReactSVG } from "react-svg";
 import { Turnstile } from "@marsidev/react-turnstile";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import CountryDropdown from "./components/CountryDropdown"; // Adjust import path
 // import CountryRegionSelector from "./components/CountryRegionSelector";
 // import curl from "highlightjs-curl";
+import CarrierPricing from "./components/CarrierPricing";
 import Nav from "./components/Nav";
+import { ReactComponent as messengerIcon } from "./img/icon-messenger.svg";
 import "./styling/style.css";
 
 function Landing() {
@@ -111,7 +114,7 @@ System.out.println(res);`,
     alert(captchaStatus);
   };
   return (
-    <div className="landing-container">
+    <div className="landing-  ">
       <Nav />
       <section id="hero" className="landing-wrapper">
         <div className="landing-hero">
@@ -122,15 +125,23 @@ System.out.println(res);`,
           <h1>
             <span>Power up</span> your messaging game
           </h1>
-          <p>
-            Enhance your communication strategy with our reliable SMS services
-            in the Philippines. Send OTPs, notifications, and marketing messages
-            for just $0.008 (PHP 0.463) per message. Experience fast,
-            dependable, and streamlined messaging solutions.
-          </p>
+          <div className="landing-body">
+            <p>
+              Enhance your communication strategy with our reliable SMS services
+              in the Philippines. Send OTPs, notifications, and marketing
+              messages for just $0.008 (PHP 0.463) per message.
+            </p>
+            <p>
+              Experience fast, dependable, and streamlined messaging solutions.
+            </p>
+          </div>
           <div className="button-group btn-group-2">
-            <button>Learn more</button>
-            <button>Try for free</button>
+            <a href="">
+              <button>View pricing</button>
+            </a>
+            <a href="">
+              <button>Try for free</button>
+            </a>
           </div>
           <div className="statistics">
             <h3>Omnichannel messaging ready</h3>
@@ -232,18 +243,13 @@ System.out.println(res);`,
             </p>
           </div>
           <div className="landing-feature">
-            <img src={require("./img/icon_coding.png")} alt="" />
-            <h3 className="feature-title">Developer Friendly</h3>
+            <img src={require("./img/icon_price.png")} alt="" />
+            <h3 className="feature-title">WhatsApp Messaging</h3>
             <p className="feature-description">
-              We offer a robust, reliable service. Our Gateway is built to
-              handle traffic redundancy, ensuring that no message is lost in the
-              process, regardless of the volume.
+              Starting at just $0.008 per message, we offer competitive rates in
+              the industry without compromising on quality.
             </p>
           </div>
-        </div>
-        <div className="button-group btn-group-2">
-          <button>Learn more</button>
-          <button>Try for free</button>
         </div>
       </section>
 
@@ -264,7 +270,7 @@ System.out.println(res);`,
             reliable, expert solutions you can count on
           </p>
         </div>
-        <img src={require("./img/server.webp")} alt="" />
+        <img src={require("./img/work.webp")} alt="" />
       </section>
       <section className="landing-whatsapp dark">
         <img src={require("./img/ph_flag.webp")} alt="" />
@@ -294,7 +300,7 @@ System.out.println(res);`,
             systems for effortless automation.
           </p>
         </div>
-        <img src={require("./img/work.webp")} alt="" />
+        <img src={require("./img/server.webp")} alt="" />
       </section>
       <section id="feature-api" className="landing-features api-feature">
         <h1 className="">
@@ -340,7 +346,6 @@ System.out.println(res);`,
               Java
             </button>
           </div>
-
           <SyntaxHighlighter
             language={codeSamples[activeTab].language}
             style={atomOneLight}
@@ -349,8 +354,12 @@ System.out.println(res);`,
           </SyntaxHighlighter>
         </div>
         <div className="button-group btn-group-2">
-          <button>View SDK & Library</button>
-          <button>Documentation</button>
+          <a href="https://moceanapi.com/developer/libraries">
+            <button>View SDK & Libraries</button>
+          </a>
+          <a href="https://moceanapi.com/docs/">
+            <button>Documentation</button>
+          </a>
         </div>
       </section>
       <section id="footer" className="contact-us">
@@ -374,6 +383,15 @@ System.out.println(res);`,
             <div className="input-wrapper">
               <label htmlFor="">Name</label>
               <input type="name" id="name" required placeholder="Your name" />
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="tel">Contact number</label>
+              <input
+                type="tel"
+                id="tel"
+                required
+                placeholder="Your contact number"
+              />
             </div>
             <div className="input-wrapper">
               <label htmlFor="">Country</label>
@@ -405,7 +423,8 @@ System.out.println(res);`,
       <section className="landing-footer">
         <footer>
           <div className="footer-logo">
-            <img src={require("./img/mocean-logo-full-dark.png")} alt="" />
+            {/* <img src={require("./img/mocean-logo-full-dark.png")} alt="" /> */}
+            <h2>Mocean</h2>
             <p>
               Send SMS messages quickly and easily. Manage your campaigns, track
               deliveries, and connect with your audience anytime, anywhere.
@@ -536,7 +555,15 @@ System.out.println(res);`,
                 <img src={require("./img/whatsapp-icon.png")} alt="" />
               </Link>
               <Link to="https://moceanapi.com/sms/.com">
-                <img src={require("./img/messenger-icon.png")} alt="" />
+                <ReactSVG src="/img/icon-messenger.svg" />
+                <img
+                  src={messengerIcon}
+                  alt="My SVG"
+                  width="100"
+                  height="100"
+                />
+
+                <messengerIcon></messengerIcon>
               </Link>
               <Link to="https://moceanapi.com/sms/.com">
                 <img src={require("./img/email-icon.png")} alt="" />

@@ -35,7 +35,16 @@ function Nav() {
             {/* <Link to="/">Home</Link> */}
           </li>
           <li>
-            <a onClick={() => resetNav("feature-summary")}>Features</a>
+            <a onClick={() => resetNav("feature-summary")}>Products</a>
+          </li>
+          <li>
+            <a onClick={() => resetNav("landing-features")}>Features</a>
+          </li>
+          <li>
+            <a onClick={() => resetNav("pricing")}>Pricing</a>
+          </li>
+          <li>
+            <a onClick={() => resetNav("feature-summary")}>Documentation</a>
           </li>
           <li>
             <a onClick={() => resetNav("footer")}>Contact Us</a>
