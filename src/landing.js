@@ -246,6 +246,56 @@ System.out.println(res);`,
           <button>Try for free</button>
         </div>
       </section>
+
+      <section className="landing-whatsapp la-wa2">
+        <div className="landing-whatsapp-left">
+          <h2>
+            Over <span>Two Decades</span> of SMS Expertise
+          </h2>
+
+          <p>
+            With over two decades of experience, we've not only witnessed the
+            evolution of SMS, but we've actively shaped it. Our commitment to
+            innovation ensures that you receive cutting-edge solutions, built on
+            a foundation of proven success.
+          </p>
+          <p>
+            Leverage our 20+ years of experience for your SMS needs. We provide
+            reliable, expert solutions you can count on
+          </p>
+        </div>
+        <img src={require("./img/server.webp")} alt="" />
+      </section>
+      <section className="landing-whatsapp dark">
+        <img src={require("./img/ph_flag.webp")} alt="" />
+
+        <div className="landing-whatsapp-left">
+          <h2>Compliance & Security</h2>
+          <p>
+            MOCEAN adheres to Philippines telecom regulations and ensures full
+            compliance with data security standards, protecting both your
+            business and your customers.
+          </p>
+          <p>
+            We ensure fast, reliable, and cost-efficient messaging with direct
+            connections to Philippines telecom networks.
+          </p>
+        </div>
+      </section>
+      <section className="landing-whatsapp dark last">
+        <div className="landing-whatsapp-left">
+          <h2>Technology & Reliability</h2>
+          <p>
+            Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
+            uptime, and seamless reach across all networks in the Philippines.
+          </p>
+          <p>
+            MOCEAN’s secure and scalable SMS API seamlessly integrates with your
+            systems for effortless automation.
+          </p>
+        </div>
+        <img src={require("./img/work.webp")} alt="" />
+      </section>
       <section id="feature-api" className="landing-features api-feature">
         <h1 className="">
           SMS API For <span>Developers</span>
@@ -303,55 +353,6 @@ System.out.println(res);`,
           <button>Documentation</button>
         </div>
       </section>
-      <section className="landing-whatsapp la-wa2">
-        <div className="landing-whatsapp-left">
-          <h2>
-            Over <span>Two Decades</span> of SMS Expertise
-          </h2>
-
-          <p>
-            With over two decades of experience, we've not only witnessed the
-            evolution of SMS, but we've actively shaped it. Our commitment to
-            innovation ensures that you receive cutting-edge solutions, built on
-            a foundation of proven success.
-          </p>
-          <p>
-            Leverage our 20+ years of experience for your SMS needs. We provide
-            reliable, expert solutions you can count on
-          </p>
-        </div>
-        <img src={require("./img/server.webp")} alt="" />
-      </section>
-      <section className="landing-whatsapp dark">
-        <img src={require("./img/ph_flag.webp")} alt="" />
-
-        <div className="landing-whatsapp-left">
-          <h2>Compliance & Security</h2>
-          <p>
-            MOCEAN adheres to Philippines telecom regulations and ensures full
-            compliance with data security standards, protecting both your
-            business and your customers.
-          </p>
-          <p>
-            We ensure fast, reliable, and cost-efficient messaging with direct
-            connections to Philippines telecom networks.
-          </p>
-        </div>
-      </section>
-      <section className="landing-whatsapp dark last">
-        <div className="landing-whatsapp-left">
-          <h2>Technology & Reliability</h2>
-          <p>
-            Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
-            uptime, and seamless reach across all networks in the Philippines.
-          </p>
-          <p>
-            MOCEAN’s secure and scalable SMS API seamlessly integrates with your
-            systems for effortless automation.
-          </p>
-        </div>
-        <img src={require("./img/work.webp")} alt="" />
-      </section>
       <section id="footer" className="contact-us">
         <div className="landing-closing">
           <h2>Enterprise Business Text Messaging Features</h2>
@@ -404,7 +405,7 @@ System.out.println(res);`,
       <section className="landing-footer">
         <footer>
           <div className="footer-logo">
-            <img src={require("./img/mocean-logo-full.png")} alt="" />
+            <img src={require("./img/mocean-logo-full-dark.png")} alt="" />
             <p>
               Send SMS messages quickly and easily. Manage your campaigns, track
               deliveries, and connect with your audience anytime, anywhere.

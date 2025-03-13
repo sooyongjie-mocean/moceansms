@@ -492,7 +492,7 @@ section.landing-features {
 }
 
 section.landing-footer {
-  background: #e5e5e9;
+  background: #172815;
   @include flex-row(4rem);
   footer {
     width: max-content;
@@ -504,18 +504,15 @@ section.landing-footer {
       "footer-legal footer-legal";
 
     p {
-      color: #001418;
-      font-size: 14px;
-    }
-    p {
       width: 300px;
+      color: #fff;
+      font-size: 14px;
     }
     img {
       width: 100px;
       max-width: max-content;
     }
     a {
-      color: #001418;
       font-size: 14px;
       &:hover {
         text-decoration: underline;
@@ -532,7 +529,7 @@ section.landing-footer {
       column-gap: 2rem;
       grid-area: footer-links;
       h3 {
-        color: #111;
+        color: #83781B;
         font-size: 1rem;
         margin-bottom: 4px;
       }
@@ -540,7 +537,7 @@ section.landing-footer {
         @include flex-row(4px);
         list-style: none !important;
         a {
-          color: #555;
+          color: #dadada;
         }
       }
     }
@@ -550,6 +547,9 @@ section.landing-footer {
       @include flex-col-between();
       font-size: 0.9rem;
       grid-area: footer-legal;
+      p {
+        color: #aaa;
+      }
       img {
         width: 20px;
       }
