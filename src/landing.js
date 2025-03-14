@@ -123,7 +123,8 @@ System.out.println(res);`,
               <img src={require("./img/shopee_logo.png")} alt="" />
             </div> */}
           <h1>
-            <span>Power up</span> your messaging game
+            Naghahanap ng Mabilis at Maaasahang{" "}
+            <span>SMS Gateway sa Pilipinas</span>?
           </h1>
           <div className="landing-body">
             <p>
@@ -150,7 +151,7 @@ System.out.println(res);`,
           <div className="statistics">
             <h3>Omnichannel messaging ready</h3>
             <div className="icon-group">
-              <img src={require("./img/icon_sms2.png")} alt="" />
+              <img src={require("./img/icon-message-alt.png")} alt="" />
               <img src={require("./img/icon_wa.png")} alt="" />
             </div>
           </div>
@@ -206,7 +207,7 @@ System.out.println(res);`,
         </p>
         <div className="feature-group">
           <div className="landing-feature">
-            <img src={require("./img/icon_sms.png")} alt="" />
+            <img src={require("./img/icon_sms2.png")} alt="" />
             <h3 className="feature-title">SMS</h3>
             <p className="feature-description">
               Deliver and receive SMS messages in every country around the
