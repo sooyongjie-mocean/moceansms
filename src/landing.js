@@ -114,7 +114,7 @@ System.out.println(res);`,
     alert(captchaStatus);
   };
   return (
-    <div className="landing-  ">
+    <div className="landing-container">
       <Nav />
       <section id="hero" className="landing-wrapper">
         <div className="landing-hero">
@@ -128,7 +128,11 @@ System.out.println(res);`,
           <div className="landing-body">
             <p>
               Enhance your communication strategy with our reliable SMS services
-              in the Philippines. Send OTPs, notifications, and marketing
+              in the{" "}
+              <span className="flag-wrapper">
+                <img src={require("./img/flag_ph.png")} alt="" />
+              </span>
+              <span> Philippines</span>. Send OTPs, notifications, and marketing
               messages for just $0.008 (PHP 0.463) per message.
             </p>
             <p>
@@ -193,7 +197,7 @@ System.out.println(res);`,
       </section>
       <section id="feature-summary" className="landing-features">
         <h1 className="">
-          Send Thousands of <span>Personalized Text Messages</span> at Once
+          Feature-packed <span>Messaging API</span> at your fingertips
         </h1>
         <p className="">
           Now you can message your entire customer base at once while
@@ -208,15 +212,24 @@ System.out.println(res);`,
               Deliver and receive SMS messages in every country around the
               world.
             </p>
+
+            <a>
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
           </div>
           <div className="landing-feature">
-            <img src={require("./img/icon_verified.png")} alt="" />
-            <h3 className="feature-title">Verify</h3>
+            <img src={require("./img/icon_wa.png")} alt="" />
+            <h3 className="feature-title">WhatsApp Messaging</h3>
             <p className="feature-description">
-              Prioritize security in your business, prevent the increasing
-              counts of frauds and scams, to ensure the top quality for your
-              business.
+              Starting at just $0.008 per message, we offer competitive rates in
+              the industry without compromising on quality.
             </p>
+
+            <a>
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
           </div>
           <div className="landing-feature">
             <img src={require("./img/icon_voice.png")} alt="" />
@@ -225,6 +238,24 @@ System.out.println(res);`,
               Lead the conversation by making, retrieving, controling and
               monitoring calls to deliver a better customer experience
             </p>
+
+            <a>
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
+          </div>
+          <div className="landing-feature">
+            <img src={require("./img/icon_verified.png")} alt="" />
+            <h3 className="feature-title">Compliance</h3>
+            <p className="feature-description">
+              Prioritize security in your business, prevent the increasing
+              counts of frauds and scams, to ensure the top quality for your
+              business.
+            </p>
+            <a>
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
           </div>
           <div className="landing-feature">
             <img src={require("./img/icon_person.png")} alt="" />
@@ -233,6 +264,10 @@ System.out.println(res);`,
               Reduce undeliverable messages, identify phone numbers by getting
               information about it to learn about it validatity and much more.
             </p>
+            <a>
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
           </div>
           <div className="landing-feature">
             <img src={require("./img/icon_integration.png")} alt="" />
@@ -241,24 +276,18 @@ System.out.println(res);`,
               Integrate Messaging service with your ecommerce business, and
               build a better relationship with your buyers.
             </p>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_price.png")} alt="" />
-            <h3 className="feature-title">WhatsApp Messaging</h3>
-            <p className="feature-description">
-              Starting at just $0.008 per message, we offer competitive rates in
-              the industry without compromising on quality.
-            </p>
+            <a href="">
+              <img src={require("./img/icon_right.png")} alt="" />
+              <span>Learn more</span>
+            </a>
           </div>
         </div>
       </section>
-
       <section className="landing-whatsapp la-wa2">
         <div className="landing-whatsapp-left">
           <h2>
             Over <span>Two Decades</span> of SMS Expertise
           </h2>
-
           <p>
             With over two decades of experience, we've not only witnessed the
             evolution of SMS, but we've actively shaped it. Our commitment to
@@ -274,9 +303,10 @@ System.out.println(res);`,
       </section>
       <section className="landing-whatsapp dark">
         <img src={require("./img/ph_flag.webp")} alt="" />
-
         <div className="landing-whatsapp-left">
-          <h2>Compliance & Security</h2>
+          <h2>
+            Peace of Mind Through <span>Security & Compliance</span>
+          </h2>
           <p>
             MOCEAN adheres to Philippines telecom regulations and ensures full
             compliance with data security standards, protecting both your
@@ -288,9 +318,11 @@ System.out.println(res);`,
           </p>
         </div>
       </section>
-      <section className="landing-whatsapp dark last">
+      <section className="landing-whatsapp dark ">
         <div className="landing-whatsapp-left">
-          <h2>Technology & Reliability</h2>
+          <h2>
+            <span>Reliable Technology</span> for Your Business
+          </h2>
           <p>
             Our advanced SMS gateway ensures lightning-fast delivery, 99.9%
             uptime, and seamless reach across all networks in the Philippines.
@@ -301,6 +333,22 @@ System.out.println(res);`,
           </p>
         </div>
         <img src={require("./img/server.webp")} alt="" />
+      </section>
+      <section className="landing-whatsapp dark last">
+        <img src={require("./img/customer.webp")} alt="" />
+        <div className="landing-whatsapp-left">
+          <h2>
+            <span>Customer Success</span> Across the Philippines
+          </h2>
+          <p>
+            Many businesses worldwide trust MOCEAN for their SMS communication
+            needs.
+          </p>
+          <p>
+            With direct connections to Philippines telecom networks, we ensure
+            fast, reliable, and cost-efficient messaging.
+          </p>
+        </div>
       </section>
       <section id="feature-api" className="landing-features api-feature">
         <h1 className="">
@@ -429,33 +477,30 @@ System.out.println(res);`,
               Send SMS messages quickly and easily. Manage your campaigns, track
               deliveries, and connect with your audience anytime, anywhere.
             </p>
+            <div className="footer-socials">
+              <ul>
+                <li>
+                  <img src={require("./img/icon_phone.png")} alt="" />
+                  <a href="tel:+60173788399">
+                    <span>+</span>60 17<span>-</span>378 8399
+                  </a>
+                </li>
+                <li>
+                  <img src={require("./img/icon_email.png")} alt="" />
+                  <a href="tel:+60173788399">
+                    <span>+</span>60 17<span>-</span>378 8399
+                  </a>
+                </li>
+                <li>
+                  <img src={require("./img/icon_office.png")} alt="" />
+                  <a href="tel:+60173788399">
+                    <span>+</span>03<span>-</span>89964780
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="footer-links">
-            <ul>
-              <h3>Products</h3>
-              <li>
-                <Link to="https://moceanapi.com/sms/">SMS</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/whatsapp/">WhatsApp</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/voice/">Voice</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/verify/">Verify</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/number-lookup/">
-                  Number Lookup
-                </Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/intergration/">
-                  Integration
-                </Link>
-              </li>
-            </ul>
             <ul>
               <h3>Documents</h3>
               <li>
@@ -490,23 +535,6 @@ System.out.println(res);`,
                 <Link to="https://moceanapi.com/developer/libraries">
                   Tools
                 </Link>
-              </li>
-            </ul>
-            <ul>
-              <h3>Resources</h3>
-              <li>
-                <Link to="https://moceanapi.com/resources/use-case/">
-                  Use Case
-                </Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/pricing/">Pricing</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/support/">Support</Link>
-              </li>
-              <li>
-                <Link to="https://moceanapi.com/faq/">FAQ</Link>
               </li>
             </ul>
             <ul>
@@ -550,25 +578,6 @@ System.out.println(res);`,
           </div>
           <div className="footer-legal">
             <p>2025 © Micro Ocean Technologies Sdn. Bhd.</p>
-            <div className="footer-socials">
-              <Link to="https://moceanapi.com/sms/.com">
-                <img src={require("./img/whatsapp-icon.png")} alt="" />
-              </Link>
-              <Link to="https://moceanapi.com/sms/.com">
-                <ReactSVG src="/img/icon-messenger.svg" />
-                <img
-                  src={messengerIcon}
-                  alt="My SVG"
-                  width="100"
-                  height="100"
-                />
-
-                <messengerIcon></messengerIcon>
-              </Link>
-              <Link to="https://moceanapi.com/sms/.com">
-                <img src={require("./img/email-icon.png")} alt="" />
-              </Link>
-            </div>
           </div>
         </footer>
       </section>

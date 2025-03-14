@@ -1301,6 +1301,10 @@ a {
   color: #fff;
   font-size: 2.25rem;
   grid-area: hero-title;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); /* 1px offset, 2px blur, 50% black */
+}
+.landing-hero h1 span {
+  color: #a0c5d9;
 }
 .landing-hero .landing-body {
   display: flex;
@@ -1309,11 +1313,17 @@ a {
   grid-area: hero-paragraph;
 }
 .landing-hero .landing-body p {
-  color: #fff;
   margin: 0px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 1px offset, 2px blur, 50% black */
 }
-.landing-hero span {
-  color: #a0c5d9;
+.landing-hero .landing-body p .flag-wrapper img {
+  transform: translateY(1.25px);
+}
+.landing-hero .landing-body p span {
+  width: min-content;
+  font-family: "Rubik", serif;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0); /* 1px offset, 2px blur, 50% black */
 }
 .landing-hero h3 {
   color: #fff;
@@ -1473,6 +1483,24 @@ section.landing-features .landing-feature h3 {
 section.landing-features .landing-feature p {
   margin: 0;
   font-size: 0.9rem;
+}
+section.landing-features .landing-feature a {
+  margin-top: 4px;
+  width: 100%;
+  padding: 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  font-size: 14px;
+  align-self: center;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #000;
+  font-weight: 500;
+}
+section.landing-features .landing-feature a img {
+  width: 12px;
 }
 
 .api-feature {
@@ -1710,6 +1738,34 @@ section.landing-footer footer .footer-links ul {
 section.landing-footer footer .footer-links ul a {
   color: #dadada;
 }
+section.landing-footer footer .footer-socials {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+section.landing-footer footer .footer-socials img {
+  height: 20px;
+}
+section.landing-footer footer .footer-socials ul {
+  grid-template-columns: auto;
+  row-gap: 4px;
+}
+section.landing-footer footer .footer-socials li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+}
+section.landing-footer footer .footer-socials a {
+  color: #dadada;
+}
+section.landing-footer footer .footer-socials a:hover {
+  text-decoration: underline;
+}
+section.landing-footer footer .footer-socials span {
+  color: #93a7ad;
+}
 section.landing-footer footer .footer-legal {
   width: 100%;
   display: flex;
@@ -1725,32 +1781,14 @@ section.landing-footer footer .footer-legal p {
 section.landing-footer footer .footer-legal img {
   width: 20px;
 }
-section.landing-footer footer .footer-legal .footer-socials {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-}
-@media screen and (min-width: 1536px) {
-  section.landing-footer footer .footer-links {
-    grid-template-columns: repeat(5, 160px);
-    column-gap: 4rem;
-  }
-}
-@media screen and (max-width: 1536px) {
-  section.landing-footer footer .footer-links {
-    width: 100%;
-    grid-template-columns: repeat(5, 120px);
-    column-gap: 4rem;
-  }
-}
-@media screen and (max-width: 1256px) {
+@media screen and (min-width: 1256px) {
   section.landing-footer footer {
     width: 100%;
     align-content: space-between;
     column-gap: 0;
   }
   section.landing-footer footer .footer-links {
-    grid-template-columns: repeat(3, 120px);
+    grid-template-columns: repeat(3, 160px);
     justify-content: end;
     column-gap: 2rem;
   }
