@@ -124,7 +124,7 @@
     color: #fff;
     font-size: 2.25rem;
     grid-area: hero-title;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, .75); /* 1px offset, 2px blur, 50% black */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75); /* 1px offset, 2px blur, 50% black */
 
     span {
       color: #a0c5d9;
@@ -223,9 +223,9 @@
 
 section.landing-features {
   padding: 4rem 2rem;
-  min-height: 90vh;
+  min-height: 80vh;
   @include flex-row(2rem);
-  background: #f7f7fb;
+  background: #f9f7f6;
   color: #111111;
 
   h1 span {
@@ -289,8 +289,12 @@ section.landing-features {
     color: #fff;
     border-radius: 12px;
     @include flex-row(1rem);
+    justify-content: space-between;
     align-items: unset;
     box-shadow: 12px 12px 36px #bebebe;
+    &-wrapper {
+      @include flex-row(1rem);
+    }
     img {
       width: 40px;
     }
@@ -430,7 +434,7 @@ section.landing-features {
     color: #222;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 800px) {
     min-height: 600px;
     padding: 36px;
     @include flex-row-center(1rem);
@@ -560,13 +564,14 @@ section.landing-footer {
         height: 20px;
       }
       ul {
+        @include flex-row(1rem);
         grid-template-columns: auto;
         row-gap: 4px;
       }
 
       li {
         list-style: none;
-        @include flex-col-center(4px);
+        @include flex-col(4px);
       }
       a {
         color: #dadada;

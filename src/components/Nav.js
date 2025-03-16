@@ -38,16 +38,16 @@ function Nav() {
             <a onClick={() => resetNav("feature-summary")}>Products</a>
           </li>
           <li>
-            <a onClick={() => resetNav("landing-features")}>Features</a>
+            <a onClick={() => resetNav("features")}>Features</a>
           </li>
           <li>
             <a onClick={() => resetNav("pricing")}>Pricing</a>
           </li>
           <li>
-            <a onClick={() => resetNav("feature-summary")}>Documentation</a>
+            <a onClick={() => resetNav("feature-api")}>Documentation</a>
           </li>
           <li>
-            <a onClick={() => resetNav("footer")}>Contact Us</a>
+            <a onClick={() => resetNav("contact-us")}>Contact Us</a>
           </li>
         </ul>
       </div>

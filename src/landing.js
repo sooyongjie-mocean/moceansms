@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { ReactSVG } from "react-svg";
+import FeatureShowcase from "./components/FeatureShowcase";
 import { Turnstile } from "@marsidev/react-turnstile";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -103,6 +104,13 @@ System.out.println(res);`,
   const [captchaStatus, setCaptchaStatus] = useState(false);
   // React Turnstile - reCaptcha
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    document
+      .getElementById("contact-us")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
   const handleCountryChange = (countryCode) => {
     setSelectedCountry(countryCode);
     console.log("Selected country in parent:", countryCode);
@@ -141,10 +149,10 @@ System.out.println(res);`,
             </p>
           </div>
           <div className="button-group btn-group-2">
-            <a href="">
-              <button>View pricing</button>
+            <a href="#contact-us" onClick={handleClick}>
+              <button>Contact us</button>
             </a>
-            <a href="">
+            <a href="https://dashboard.moceanapi.com/register">
               <button>Try for free</button>
             </a>
           </div>
@@ -206,85 +214,49 @@ System.out.println(res);`,
           personalized messaging at scale.
         </p>
         <div className="feature-group">
-          <div className="landing-feature">
-            <img src={require("./img/icon_sms2.png")} alt="" />
-            <h3 className="feature-title">SMS</h3>
-            <p className="feature-description">
-              Deliver and receive SMS messages in every country around the
-              world.
-            </p>
-
-            <a>
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_wa.png")} alt="" />
-            <h3 className="feature-title">WhatsApp Messaging</h3>
-            <p className="feature-description">
-              Starting at just $0.008 per message, we offer competitive rates in
-              the industry without compromising on quality.
-            </p>
-
-            <a>
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_voice.png")} alt="" />
-            <h3 className="feature-title">Voice</h3>
-            <p className="feature-description">
-              Lead the conversation by making, retrieving, controling and
-              monitoring calls to deliver a better customer experience
-            </p>
-
-            <a>
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_verified.png")} alt="" />
-            <h3 className="feature-title">Compliance</h3>
-            <p className="feature-description">
-              Prioritize security in your business, prevent the increasing
+          <FeatureShowcase
+            title="SMS"
+            imgURL={require("./img/icon_sms2.png")}
+            body="Starting at just $0.008 per message, we offer competitive rates in
+              the industry without compromising on quality."
+            scrollIntoView="pricing"
+          />
+          <FeatureShowcase
+            title="WhatsApp Messaging"
+            imgURL={require("./img/icon_wa.png")}
+            body="Send messages across the world"
+            linkURL="https://moceanapi.com/whatsapp/"
+          />
+          <FeatureShowcase
+            title="Voice"
+            imgURL={require("./img/icon_voice.png")}
+            body="Lead the conversation by making, retrieving, controling and
+              monitoring calls to deliver a better customer experience"
+            linkURL="https://moceanapi.com/voice/"
+          />
+          <FeatureShowcase
+            title="Compliance"
+            imgURL={require("./img/icon_verified.png")}
+            body="Prioritize security in your business, prevent the increasing
               counts of frauds and scams, to ensure the top quality for your
-              business.
-            </p>
-            <a>
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_person.png")} alt="" />
-            <h3 className="feature-title">Number Lookup</h3>
-            <p className="feature-description">
-              Reduce undeliverable messages, identify phone numbers by getting
-              information about it to learn about it validatity and much more.
-            </p>
-            <a>
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
-          <div className="landing-feature">
-            <img src={require("./img/icon_integration.png")} alt="" />
-            <h3 className="feature-title">Integration</h3>
-            <p className="feature-description">
-              Integrate Messaging service with your ecommerce business, and
-              build a better relationship with your buyers.
-            </p>
-            <a href="">
-              <img src={require("./img/icon_right.png")} alt="" />
-              <span>Learn more</span>
-            </a>
-          </div>
+              business."
+            linkURL="https://moceanapi.com/compliance/"
+          />
+          <FeatureShowcase
+            title="Number Lookup"
+            imgURL={require("./img/icon_person.png")}
+            body="Reduce undeliverable messages by obtaining information such as number validatity."
+            linkURL="https://moceanapi.com/voice/"
+          />
+          <FeatureShowcase
+            title="Integration"
+            imgURL={require("./img/icon_integration.png")}
+            body="Integrate Messaging service with your ecommerce business, and build a better relationship with your buyers."
+            linkURL="https://moceanapi.com/voice/"
+          />
         </div>
       </section>
-      <section className="landing-whatsapp la-wa2">
+      <section className="landing-whatsapp la-wa2" id="features">
         <div className="landing-whatsapp-left">
           <h2>
             Over <span>Two Decades</span> of SMS Expertise
@@ -411,13 +383,13 @@ System.out.println(res);`,
           </a>
         </div>
       </section>
-      <section id="footer" className="contact-us">
+      <CarrierPricing />
+      <section id="contact-us" className="contact-us">
         <div className="landing-closing">
-          <h2>Enterprise Business Text Messaging Features</h2>
+          <h2>Want to dive right in?</h2>
           <p>
-            Trial account: No risk, just results! Reach your customers on their
-            favorite messaging channels using an intuitive, secure, and powerful
-            business texting platform.
+            We offers free trial to help you get started. NO credit card
+            required.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="input-wrapper">
@@ -487,7 +459,7 @@ System.out.println(res);`,
                   </a>
                 </li>
                 <li>
-                  <img src={require("./img/icon_email.png")} alt="" />
+                  <img src={require("./img/icon_mail.png")} alt="" />
                   <a href="tel:+60173788399">
                     <span>+</span>60 17<span>-</span>378 8399
                   </a>
@@ -541,10 +513,10 @@ System.out.println(res);`,
             <ul>
               <h3>Company</h3>
               <li>
-                <Link to="https://moceanapi.com/use-case/">About Us</Link>
+                <Link to="https://moceanapi.com/about-us/">About Us</Link>
               </li>
               <li>
-                <Link to="https://moceanapi.com/sms/">Contact</Link>
+                <a href="#contact-us">Contact Us</a>
               </li>
               <li>
                 <Link to="https://dashboard.moceanapi.com/login/">Login</Link>
@@ -558,15 +530,15 @@ System.out.println(res);`,
             <ul>
               <h3>Legal</h3>
               <li>
-                <Link to="https://moceanapi.com/legal/terms/">
+                <a href="https://moceanapi.com/legal/terms">
                   Terms and Conditions
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="https://moceanapi.com/legal/privacy/">Privacy</Link>
+                <Link to="https://moceanapi.com/legal/privacy">Privacy</Link>
               </li>
               <li>
-                <Link to="https://moceanapi.com/legal/refund-policy/">
+                <Link to="https://moceanapi.com/legal/refund-policy">
                   Refund Policy
                 </Link>
               </li>

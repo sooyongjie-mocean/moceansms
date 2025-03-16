@@ -3,7 +3,7 @@
 .pricing {
   padding-top: 120px;
   padding-bottom: 200px;
-  background: #f1f1f2;
+  background: #f9f7f6;
   @include flex-row-center(60px);
   @media screen and (min-width: 760px) {
     &-wrapper {

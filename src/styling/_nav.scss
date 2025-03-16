@@ -5,7 +5,7 @@ nav {
   padding: 1rem 2rem 1rem 2rem;
   display: grid;
   grid-template-areas: "nav-left nav-center nav-right";
-  grid-template-columns: 21rem auto 21rem;
+  grid-template-columns: 200px auto 200px;
   justify-content: space-between;
   align-items: center;
   column-gap: 60px;
@@ -54,6 +54,7 @@ nav {
     @include flex-col-center(0.5rem);
     justify-self: end;
     grid-area: nav-right;
+    transform: translateX(12px);
 
     button,
     a {
@@ -119,50 +120,47 @@ nav {
     }
   }
 
-  @media screen and (min-width: 1635px) {
+  @media screen and (min-width: 1536px) {
     .navbar-right button {
       display: none;
     }
   }
   // @media screen and (max-width: 1025px) {
-  @media screen and (max-width: 1635px) {
-    padding: 1rem 1rem 1rem 2rem;
+  @media screen and (max-width: 1536px) {
+    padding: 1rem 2rem 1rem 2rem;
     // height: 75.9.5rem;
-    width: calc(100% - 72px);
+    width: calc(100% - 72px) !important;
     grid-template-columns: auto auto;
     grid-template-areas:
       "nav-left nav-right"
       "nav-center nav-center";
     border-radius: 24px;
-    &.onscroll {
-      height: auto;
-      width: calc(100% - 72px);
-      .navbar-center {
-        margin-top: 1rem;
-        background: #f1f1f2;
-        border-radius: 1rem;
-        overflow: hidden;
-        ul {
-          @include flex-row(0);
-          li {
-            display: flex;
+    height: auto;
+    .navbar-center {
+      margin-top: 1rem;
+      background: #f1f1f2;
+      border-radius: 1rem;
+      overflow: hidden;
+      ul {
+        @include flex-row(0);
+        li {
+          display: flex;
+          width: 100%;
+          border-bottom: 1px solid #eaebec;
+          a {
             width: 100%;
-            border-bottom: 1px solid #eaebec;
-            a {
-              width: 100%;
-              padding: 1rem 1rem;
-              border-radius: 1rem;
-
-              &:hover {
-                background: #e6e7e8;
-              }
+            padding: 1rem 1rem;
+            border-radius: 1rem;
+            color: #000;
+            &:hover {
+              background: #e6e7e8;
             }
           }
         }
       }
     }
     .navbar-center {
-      margin-top: 2.25rem;
+      margin-top: 16px;
       transition: 0.28s;
     }
     .navbar-right {
@@ -172,11 +170,12 @@ nav {
     }
     .navbar-center.hidden {
       opacity: 0;
+      pointer-events: none;
     }
   }
   @media screen and (max-width: 800px) {
     width: calc(100% - 2.25rem) !important;
-    padding: 1rem 0.75rem 1rem 2.25rem;
+    padding: 1rem 24px 1rem 24px;
   }
 
   @media screen and (max-width: 540px) {

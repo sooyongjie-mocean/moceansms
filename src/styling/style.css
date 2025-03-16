@@ -80,7 +80,7 @@ nav {
   padding: 1rem 2rem 1rem 2rem;
   display: grid;
   grid-template-areas: "nav-left nav-center nav-right";
-  grid-template-columns: 21rem auto 21rem;
+  grid-template-columns: 200px auto 200px;
   justify-content: space-between;
   align-items: center;
   column-gap: 60px;
@@ -137,6 +137,7 @@ nav .navbar-right {
   column-gap: 0.5rem;
   justify-self: end;
   grid-area: nav-right;
+  transform: translateX(12px);
 }
 nav .navbar-right button,
 nav .navbar-right a {
@@ -196,49 +197,47 @@ nav.onscroll .navbar-right svg.ham-icon {
   cursor: pointer;
   fill: black;
 }
-@media screen and (min-width: 1635px) {
+@media screen and (min-width: 1536px) {
   nav .navbar-right button {
     display: none;
   }
 }
-@media screen and (max-width: 1635px) {
+@media screen and (max-width: 1536px) {
   nav {
-    padding: 1rem 1rem 1rem 2rem;
-    width: calc(100% - 72px);
+    padding: 1rem 2rem 1rem 2rem;
+    width: calc(100% - 72px) !important;
     grid-template-columns: auto auto;
     grid-template-areas: "nav-left nav-right" "nav-center nav-center";
     border-radius: 24px;
-  }
-  nav.onscroll {
     height: auto;
-    width: calc(100% - 72px);
   }
-  nav.onscroll .navbar-center {
+  nav .navbar-center {
     margin-top: 1rem;
     background: #f1f1f2;
     border-radius: 1rem;
     overflow: hidden;
   }
-  nav.onscroll .navbar-center ul {
+  nav .navbar-center ul {
     display: flex;
     flex-direction: column;
     row-gap: 0;
   }
-  nav.onscroll .navbar-center ul li {
+  nav .navbar-center ul li {
     display: flex;
     width: 100%;
     border-bottom: 1px solid #eaebec;
   }
-  nav.onscroll .navbar-center ul li a {
+  nav .navbar-center ul li a {
     width: 100%;
     padding: 1rem 1rem;
     border-radius: 1rem;
+    color: #000;
   }
-  nav.onscroll .navbar-center ul li a:hover {
+  nav .navbar-center ul li a:hover {
     background: #e6e7e8;
   }
   nav .navbar-center {
-    margin-top: 2.25rem;
+    margin-top: 16px;
     transition: 0.28s;
   }
   nav .navbar-right svg.ham-icon {
@@ -246,12 +245,13 @@ nav.onscroll .navbar-right svg.ham-icon {
   }
   nav .navbar-center.hidden {
     opacity: 0;
+    pointer-events: none;
   }
 }
 @media screen and (max-width: 800px) {
   nav {
     width: calc(100% - 2.25rem) !important;
-    padding: 1rem 0.75rem 1rem 2.25rem;
+    padding: 1rem 24px 1rem 24px;
   }
 }
 @media screen and (max-width: 540px) {
@@ -725,7 +725,7 @@ a {
 .pricing {
   padding-top: 120px;
   padding-bottom: 200px;
-  background: #f1f1f2;
+  background: #f9f7f6;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1396,11 +1396,11 @@ a {
 
 section.landing-features {
   padding: 4rem 2rem;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  background: #f7f7fb;
+  background: #f9f7f6;
   color: #111111;
 }
 section.landing-features h1 span {
@@ -1469,8 +1469,14 @@ section.landing-features .landing-feature {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  justify-content: space-between;
   align-items: unset;
   box-shadow: 12px 12px 36px #bebebe;
+}
+section.landing-features .landing-feature-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 section.landing-features .landing-feature img {
   width: 40px;
@@ -1605,7 +1611,7 @@ section.landing-features .landing-feature a img {
 .landing-whatsapp.light {
   color: #222;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .landing-whatsapp {
     min-height: 600px;
     padding: 36px;
@@ -1747,13 +1753,15 @@ section.landing-footer footer .footer-socials img {
   height: 20px;
 }
 section.landing-footer footer .footer-socials ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
   grid-template-columns: auto;
   row-gap: 4px;
 }
 section.landing-footer footer .footer-socials li {
   list-style: none;
   display: flex;
-  justify-content: center;
   align-items: center;
   column-gap: 4px;
 }

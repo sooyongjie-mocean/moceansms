@@ -1,46 +1,42 @@
 import { useState, useEffect } from "react";
 import jsonData from "../pricing.json"; // Import the JSON file
+import ButtonGroup from "./ButtonGroup";
 
 function CarrierPricing() {
   const [tableData, setTableData] = useState({
-    MY: [
-      { id: 1, name: "Celcom", price: 1.25 },
-      { id: 2, name: "Digi", price: 1.25 },
-      { id: 3, name: "Maxis", price: 1.25 },
-      { id: 4, name: "U Mobile", price: 1.25 },
-      { id: 5, name: "Webe", price: 1.25 },
-      { id: 6, name: "XOX", price: 1.25 },
-      { id: 7, name: "YES", price: 1.25 },
-    ],
     PH: [
-      { id: 8, name: "Singtel", price: 50 },
-      { id: 9, name: "Starhub", price: 60 },
-    ],
-    SG: [
       { id: 10, name: "Global Telecom", price: 30 },
       { id: 11, name: "Smart Commmunications", price: 40 },
     ],
   });
 
   const countries = {
-    MY: "Malaysia",
     PH: "Philippines",
-    SG: "Singapore",
   };
 
   // useEffect(() => {
   //   setTableData(jsonData); // Set the imported JSON data to state
   // }, []); // Empty dependency array means this effect runs only once (on mount)
 
-  const [selectedOption, setSelectedOption] = useState("MY");
+  const [selectedOption, setSelectedOption] = useState("PH");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    document.getElementById("contact-us").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="pricing" className="pricing">
+    <section id="pricing" className="landing-features pricing">
       <h1>Price breakdown</h1>
+      <p>
+        Looking for cost-effective and flexible SMS bulk services in
+        Philippines? Explore bulk purchase discounts by contacting sales. Our
+        team is ready to assist in finding the ideal solution for your company.
+      </p>
       <div className="pricing-wrapper">
         <div className="selector-wrapper">
           <select
@@ -55,14 +51,14 @@ function CarrierPricing() {
             ))}
           </select>
           <select name="pricing-currency">
-            <option value="MY">Malaysian Ringgit (RM)</option>
+            <option value="USD">US Dollar (USD)</option>
           </select>
         </div>
         <table>
           <thead>
             <tr>
               <th>Operator</th>
-              <th>Price</th>
+              <th>Price per SMS</th>
             </tr>
           </thead>
           <tbody>
@@ -74,6 +70,14 @@ function CarrierPricing() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="button-group btn-group-2">
+        <a href="#contact-us" onClick={handleClick}>
+          <button>Contact us</button>
+        </a>
+        <a href="https://dashboard.moceanapi.com/register">
+          <button>Try for free</button>
+        </a>
       </div>
     </section>
   );
