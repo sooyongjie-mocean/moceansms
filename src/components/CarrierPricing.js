@@ -4,10 +4,7 @@ import ButtonGroup from "./ButtonGroup";
 
 function CarrierPricing() {
   const [tableData, setTableData] = useState({
-    PH: [
-      { id: 10, name: "Global Telecom", price: 30 },
-      { id: 11, name: "Smart Commmunications", price: 40 },
-    ],
+    PH: [{ id: 1, name: "All operators", price: "0.008 (PHP 0.463)" }],
   });
 
   const countries = {
@@ -26,16 +23,17 @@ function CarrierPricing() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    document.getElementById("contact-us").scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("contact-us")
+      .scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section id="pricing" className="landing-features pricing">
-      <h1>Price breakdown</h1>
+      <h1>Pricing for <span>Philippines</span></h1>
       <p>
-        Looking for cost-effective and flexible SMS bulk services in
-        Philippines? Explore bulk purchase discounts by contacting sales. Our
-        team is ready to assist in finding the ideal solution for your company.
+        Connect with our sales team today to get exclusive bulk discounts and
+        tailored solutions to improve business communication and customer engagement.
       </p>
       <div className="pricing-wrapper">
         <div className="selector-wrapper">

@@ -750,8 +750,8 @@ a {
   padding: 12px 12px;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  color: #4b5563;
-  font-size: 18px;
+  color: #333;
+  font-size: 1rem;
   font-family: "Inter", serif;
   font-weight: 500;
   appearance: none;
@@ -766,7 +766,11 @@ a {
 .pricing table {
   width: 100%;
   background: white;
+  margin: 0 !important;
+  border: 1px solid #eaeaea;
   border-radius: 16px;
+  border-spacing: 0;
+  overflow: hidden;
 }
 .pricing table tr {
   display: grid;
@@ -774,11 +778,14 @@ a {
   width: 100%;
 }
 .pricing table th {
-  padding: 20px 24px;
+  padding: 16px 24px;
+  background: #f1f1f2;
+  color: #111;
+  border-bottom: 1px solid #f1f1f2;
   text-align: left;
 }
 .pricing table td {
-  padding: 0px 24px 12px 24px;
+  padding: 18px 24px 18px 24px;
 }
 
 @font-face {

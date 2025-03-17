@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ReactSVG } from "react-svg";
 import FeatureShowcase from "./components/FeatureShowcase";
 import { Turnstile } from "@marsidev/react-turnstile";
@@ -101,8 +101,30 @@ System.out.println(res);`,
   const [activeTab, setActiveTab] = useState("php");
 
   const [selectedCountry, setSelectedCountry] = useState("");
-  const [captchaStatus, setCaptchaStatus] = useState(false);
-  // React Turnstile - reCaptcha
+  const [captchaStatus, setCaptchaStatus] = useState(false); // React Turnstile - reCaptcha
+  const [formData, setFormData] = useState({
+    name: "Soo Yong Jie",
+    email: "sooyongjie@gmail.com",
+    phone: "601123056612",
+    country: selectedCountry,
+    message: "Goodbye world 🕊️🪦",
+  });
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log("Handling change to FormData 📝");
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useEffect(() => {
+    setFormData((prevData) => ({
+      ...prevData,
+      country: selectedCountry,
+    }));
+  }, [selectedCountry]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -116,12 +138,62 @@ System.out.println(res);`,
     console.log("Selected country in parent:", countryCode);
   };
 
-  // Form handling
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(captchaStatus);
+  // Turnstile callback functions
+  const handleTurnstileSuccess = (token) => {
+    console.log("handleTurnstileSuccess: ", token);
+    setTurnstileToken(token);
   };
-  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    // alert(captchaStatus);
+
+    try {
+      // First, validate Turnstile token
+      if (!turnstileToken) {
+        setStatus({
+          type: "error",
+          message: "Please complete the Turnstile challenge",
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Submit form data and token to your backend API
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
+      });
+
+      console.log("response: ", response);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Clear form on success
+        setFormData({ name: "", email: "", country: "", message: "" });
+        setStatus({ type: "success", message: data.message });
+        // Reset Turnstile
+        window.turnstile.reset();
+        setTurnstileToken("");
+      } else {
+        setStatus({ type: "error", message: data.message });
+      }
+    } catch (err) {
+      setStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="landing-container">
       <Nav />
@@ -225,7 +297,7 @@ System.out.println(res);`,
           <FeatureShowcase
             title="WhatsApp Messaging"
             imgURL={require("./img/icon_wa.png")}
-            body="Send messages across the world"
+            body="Broadcast messages across the world with higher click-through rates and higher user engagement."
             linkURL="https://moceanapi.com/whatsapp"
           />
           <FeatureShowcase
@@ -389,7 +461,7 @@ System.out.println(res);`,
         <div className="landing-closing">
           <h2>Want to dive right in?</h2>
           <p>
-            We offers free trial to help you get started. NO credit card
+            Start sending messages right away with our free trial. NO credit card
             required.
           </p>
           <form onSubmit={handleSubmit}>
@@ -398,38 +470,55 @@ System.out.println(res);`,
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 placeholder="Enter your email"
               />
             </div>
             <div className="input-wrapper">
               <label htmlFor="">Name</label>
-              <input type="name" id="name" required placeholder="Your name" />
+              <input
+                type="name"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Your name"
+              />
             </div>
             <div className="input-wrapper">
               <label htmlFor="tel">Contact number</label>
               <input
                 type="tel"
                 id="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 required
                 placeholder="Your contact number"
               />
             </div>
             <div className="input-wrapper">
               <label htmlFor="">Country</label>
-              <CountryDropdown onCountryChange={handleCountryChange} />
+              <CountryDropdown onCountrySelect={handleCountryChange} />
             </div>
             <div className="input-wrapper">
               <label htmlFor="">Message</label>
               <textarea
                 type="name"
                 id="name"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 required
                 placeholder="Your message here"
               />
             </div>
             <button type="submit">Submit</button>
-
+            {/* Turnstile component */}
             <Turnstile
               siteKey="0x4AAAAAAA_lqJ0w01-K480l"
               options={{
@@ -437,7 +526,7 @@ System.out.println(res);`,
               }}
               onError={() => setCaptchaStatus(false)}
               onExpire={() => setCaptchaStatus(false)}
-              onSuccess={() => setCaptchaStatus(true)}
+              onSuccess={handleTurnstileSuccess}
             />
           </form>
         </div>
