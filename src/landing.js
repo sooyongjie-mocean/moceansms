@@ -99,15 +99,14 @@ System.out.println(res);`,
     },
   };
   const [activeTab, setActiveTab] = useState("php");
-
   const [selectedCountry, setSelectedCountry] = useState("");
   const [captchaStatus, setCaptchaStatus] = useState(false); // React Turnstile - reCaptcha
   const [formData, setFormData] = useState({
-    name: "Soo Yong Jie",
-    email: "sooyongjie@gmail.com",
-    phone: "601123056612",
+    name: "",
+    email: "",
+    phone: "",
     country: selectedCountry,
-    message: "Goodbye world 🕊️🪦",
+    message: "",
   });
   const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState({ type: "", message: "" });
