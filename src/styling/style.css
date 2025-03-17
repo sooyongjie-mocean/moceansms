@@ -197,7 +197,7 @@ nav.onscroll .navbar-right svg.ham-icon {
   cursor: pointer;
   fill: black;
 }
-@media screen and (min-width: 1536px) {
+@media screen and (min-width: 1537px) {
   nav .navbar-right button {
     display: none;
   }
@@ -225,7 +225,7 @@ nav.onscroll .navbar-right svg.ham-icon {
   nav .navbar-center ul li {
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #eaebec;
+    border-bottom: 1px solid #D5DFE3;
   }
   nav .navbar-center ul li a {
     width: 100%;
@@ -1257,6 +1257,11 @@ a {
     padding: 24px 16px 60px 16px;
   }
 }
+@media screen and (max-width: 1256px) {
+  .landing-wrapper {
+    padding-top: 128px;
+  }
+}
 
 .landing-hero {
   display: grid;
@@ -1468,7 +1473,7 @@ section.landing-features .landing-feature {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
   justify-content: space-between;
   align-items: unset;
   box-shadow: 12px 12px 36px #bebebe;

@@ -121,6 +121,7 @@ System.out.println(res);`,
     e.preventDefault();
     alert(captchaStatus);
   };
+  
   return (
     <div className="landing-container">
       <Nav />
@@ -225,14 +226,14 @@ System.out.println(res);`,
             title="WhatsApp Messaging"
             imgURL={require("./img/icon_wa.png")}
             body="Send messages across the world"
-            linkURL="https://moceanapi.com/whatsapp/"
+            linkURL="https://moceanapi.com/whatsapp"
           />
           <FeatureShowcase
             title="Voice"
             imgURL={require("./img/icon_voice.png")}
             body="Lead the conversation by making, retrieving, controling and
               monitoring calls to deliver a better customer experience"
-            linkURL="https://moceanapi.com/voice/"
+            linkURL="https://moceanapi.com/voice"
           />
           <FeatureShowcase
             title="Compliance"
@@ -240,19 +241,19 @@ System.out.println(res);`,
             body="Prioritize security in your business, prevent the increasing
               counts of frauds and scams, to ensure the top quality for your
               business."
-            linkURL="https://moceanapi.com/compliance/"
+            scrollIntoView="features"
           />
           <FeatureShowcase
             title="Number Lookup"
             imgURL={require("./img/icon_person.png")}
             body="Reduce undeliverable messages by obtaining information such as number validatity."
-            linkURL="https://moceanapi.com/voice/"
+            linkURL="https://moceanapi.com/number-lookup"
           />
           <FeatureShowcase
             title="Integration"
             imgURL={require("./img/icon_integration.png")}
             body="Integrate Messaging service with your ecommerce business, and build a better relationship with your buyers."
-            linkURL="https://moceanapi.com/voice/"
+            linkURL="https://moceanapi.com/developer/integration"
           />
         </div>
       </section>

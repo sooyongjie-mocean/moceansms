@@ -83,6 +83,10 @@
   @media screen and (max-width: 500px) {
     padding: 24px 16px 60px 16px;
   }
+  
+  @media screen and (max-width: 1256px) {
+    padding-top: 128px;
+  }
 }
 
 .landing-hero {
@@ -288,7 +292,7 @@ section.landing-features {
     background: #060720;
     color: #fff;
     border-radius: 12px;
-    @include flex-row(1rem);
+    @include flex-row(1.5rem);
     justify-content: space-between;
     align-items: unset;
     box-shadow: 12px 12px 36px #bebebe;

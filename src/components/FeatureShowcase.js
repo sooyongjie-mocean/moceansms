@@ -23,7 +23,7 @@ function FeatureShowcase({ imgURL, title, body, linkURL, scrollIntoView }) {
           <span>Learn more</span>
         </a>
       ) : (
-        <a  >
+        <a onClick={handleClick}>
           <img src={require("../img/icon_right.png")} alt="" />
           <span>Learn more</span>
         </a>
