@@ -547,15 +547,6 @@ System.out.println(res);`,
           </form>
         </div>
       </section>
-      <section className="moceansms">
-        <div className="message-container">
-          <h3>
-            Looking for a reliable web SMS portal to send broadcasts
-            effortlessly? Check out{" "}
-            <a href="https://moceansms.com">www.moceansms.com</a>
-          </h3>
-        </div>
-      </section>
       <section className="landing-footer">
         <footer>
           <div className="footer-logo">
