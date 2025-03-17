@@ -4,7 +4,7 @@ import ButtonGroup from "./ButtonGroup";
 
 function CarrierPricing() {
   const [tableData, setTableData] = useState({
-    PH: [{ id: 1, name: "All operators", price: "0.008 (PHP 0.463)" }],
+    PH: [{ id: 1, name: "Philippines", price: "USD 0.008 (PHP 0.463)" }],
   });
 
   const countries = {
@@ -30,12 +30,16 @@ function CarrierPricing() {
 
   return (
     <section id="pricing" className="landing-features pricing">
-      <h1>Pricing for <span>Philippines</span></h1>
+      <h1>
+        SMS Pricing for <span>Philippines</span>
+      </h1>
       <p>
         Connect with our sales team today to get exclusive bulk discounts and
-        tailored solutions to improve business communication and customer engagement.
+        tailored solutions to improve business communication and customer
+        engagement.
       </p>
       <div className="pricing-wrapper">
+        {/* 
         <div className="selector-wrapper">
           <select
             name="pricing-country"
@@ -52,10 +56,11 @@ function CarrierPricing() {
             <option value="USD">US Dollar (USD)</option>
           </select>
         </div>
+        */}
         <table>
           <thead>
             <tr>
-              <th>Operator</th>
+              <th>Country</th>
               <th>Price per SMS</th>
             </tr>
           </thead>

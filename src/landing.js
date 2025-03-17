@@ -147,7 +147,6 @@ System.out.println(res);`,
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // alert(captchaStatus);
 
     try {
       // First, validate Turnstile token
@@ -176,7 +175,16 @@ System.out.println(res);`,
 
       if (response.ok) {
         // Clear form on success
-        setFormData({ name: "", email: "", country: "", message: "" });
+        alert(
+          "Your message has been received. Our team will get back to you soon."
+        );
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
         setStatus({ type: "success", message: data.message });
         // Reset Turnstile
         window.turnstile.reset();
@@ -456,13 +464,22 @@ System.out.println(res);`,
           </a>
         </div>
       </section>
+      <section className="moceansms">
+        <div className="message-container">
+          <h3>
+            Looking for a reliable web SMS portal to send broadcasts
+            effortlessly? Check out{" "}
+            <a href="https://moceansms.com">www.moceansms.com</a>
+          </h3>
+        </div>
+      </section>
       <CarrierPricing />
       <section id="contact-us" className="contact-us">
         <div className="landing-closing">
           <h2>Want to dive right in?</h2>
           <p>
-            Start sending messages right away with our free trial. NO credit card
-            required.
+            Start sending messages right away with our free trial. NO credit
+            card required.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="input-wrapper">
@@ -529,6 +546,15 @@ System.out.println(res);`,
               onSuccess={handleTurnstileSuccess}
             />
           </form>
+        </div>
+      </section>
+      <section className="moceansms">
+        <div className="message-container">
+          <h3>
+            Looking for a reliable web SMS portal to send broadcasts
+            effortlessly? Check out{" "}
+            <a href="https://moceansms.com">www.moceansms.com</a>
+          </h3>
         </div>
       </section>
       <section className="landing-footer">

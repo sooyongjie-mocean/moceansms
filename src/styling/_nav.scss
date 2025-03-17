@@ -106,11 +106,14 @@ nav {
         font-size: 1rem;
         padding: 0.75rem 1rem !important;
         &:nth-child(1) {
-          background: #000;
-          color: #fff;
+          color: #000;
+          svg {
+            fill: #000;
+          }
         }
         &:nth-child(2) {
-          display: none;
+          background: #000 !important;
+          color: #fff;
         }
       }
       svg.ham-icon {
@@ -122,6 +125,7 @@ nav {
 
   @media screen and (min-width: 1537px) {
     //SEE BELOW IF RESPONSIVE NOT WORKING
+    // Do not show Menu btn on large screens
     .navbar-right button {
       display: none;
     }
@@ -147,7 +151,7 @@ nav {
         li {
           display: flex;
           width: 100%;
-          border-bottom: 1px solid #D5DFE3;
+          border-bottom: 1px solid #d5dfe3;
           a {
             width: 100%;
             padding: 1rem 1rem;
@@ -179,25 +183,25 @@ nav {
     padding: 1rem 24px 1rem 24px;
   }
 
+
+  @media screen and (min-width: 540px) {
+    .navbar-center {
+      li:nth-child(7) {
+        display: none;
+      }
+    }
+  }
   @media screen and (max-width: 540px) {
+    .navbar-center {
+      li:nth-child(7) {
+        display: initial;
+      }
+    }
     .navbar-right {
       button,
       a {
         &:nth-child(1) {
-          display: none;
-        }
-      }
-    }
-    &.onscroll {
-      .navbar-right {
-        button,
-        a {
-          &:nth-child(0) {
-            display: none;
-          }
-          &:nth-child(1) {
-            display: flex;
-          }
+          display: none !important;
         }
       }
     }

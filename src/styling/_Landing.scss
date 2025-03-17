@@ -445,6 +445,25 @@ section.landing-features {
   }
 }
 
+
+// MoceanSMS
+section.moceansms {
+  background: #fff;
+  box-shadow: 12px 4px 36px #fff;
+  border: 1px solid #FFE8A3;
+  .message-container {
+    width: 540px;
+    h3 {
+      font-size: 18px;
+    }
+    a {
+      color: #172815;
+      text-decoration: underline;
+      text-decoration-color: #ffd147;
+    }
+  }
+}
+
 /*
  * Footer 
 */

@@ -25,8 +25,8 @@ function Nav() {
   return (
     <nav className={`navbar ${fix ? "onscroll" : ""}`}>
       <div className="navbar-left">
-      <img src={require("../img/mocean-logo-full-dark.png")} alt="" />
-      <img src={require("../img/mocean-logo-full.png")} alt="" />
+        <img src={require("../img/mocean-logo-full-dark.png")} alt="" />
+        <img src={require("../img/mocean-logo-full.png")} alt="" />
       </div>
       <div className={`navbar-center ${showNavLinks ? "hidden" : ""}`}>
         <ul>
@@ -48,6 +48,9 @@ function Nav() {
           </li>
           <li>
             <a onClick={() => resetNav("contact-us")}>Contact Us</a>
+          </li>
+          <li>
+            <a href="https://dashboard.moceanapi.com/login">Log in</a>
           </li>
         </ul>
       </div>
