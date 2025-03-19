@@ -465,11 +465,24 @@ System.out.println(res);`,
       </section>
       <section className="moceansms">
         <div className="message-container">
-          <h3>
-            Looking for a reliable web SMS portal to send broadcasts
-            effortlessly? Check out{" "}
-            <a href="https://moceansms.com">www.moceansms.com</a>
-          </h3>
+          <h1>Broadcast Messages Without Coding</h1>
+          <p>
+            Our web SMS portal at <a href="www.moceansms.com ">moceansms.com</a>{" "}
+            lets you send broadcasts instantly without writing a single line of
+            code.
+          </p>
+          <div className="moceansms-showcase">
+            <img src={require("./img/icon_dashboard.png")} alt="" />
+            <h2>Mocean Dashboard</h2>
+            <p>
+              Segment customers into lists and run drip campaigns to share
+              targeted information.
+            </p>
+            <button>Check it out</button>
+            <div className="moceansms-preview">
+              <div className="moceansms-dropdown">SMS Message</div>
+            </div>
+          </div>
         </div>
       </section>
       <CarrierPricing />

@@ -1642,18 +1642,47 @@ section.landing-features .landing-feature a img {
 section.moceansms {
   background: #fff;
   box-shadow: 12px 4px 36px #fff;
-  border: 1px solid #FFE8A3;
 }
 section.moceansms .message-container {
-  width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
 }
-section.moceansms .message-container h3 {
-  font-size: 18px;
+section.moceansms .message-container h1 {
+  font-size: 32px;
 }
 section.moceansms .message-container a {
   color: #172815;
   text-decoration: underline;
   text-decoration-color: #ffd147;
+}
+section.moceansms .moceansms-showcase {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: 48px auto;
+  grid-template-areas: "moceansms-icon moceansms-title" "moceansms-paragraph moceansms-paragraph" "moceansms-button moceansms-button" "moceansms-preview moceansms-preview";
+}
+section.moceansms .moceansms-showcase img {
+  width: 32px;
+  grid-area: moceansms-icon;
+}
+section.moceansms .moceansms-showcase h2 {
+  grid-area: moceansms-title;
+}
+section.moceansms .moceansms-showcase p {
+  grid-area: moceansms-paragraph;
+}
+section.moceansms .moceansms-showcase button {
+  width: max-content;
+  grid-area: moceansms-button;
+}
+section.moceansms .moceansms-showcase .moceansms-preview {
+  grid-area: moceansms-preview;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
 }
 
 /*

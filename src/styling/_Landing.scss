@@ -83,7 +83,7 @@
   @media screen and (max-width: 500px) {
     padding: 24px 16px 60px 16px;
   }
-  
+
   @media screen and (max-width: 1256px) {
     padding-top: 128px;
   }
@@ -445,21 +445,47 @@ section.landing-features {
   }
 }
 
-
 // MoceanSMS
 section.moceansms {
   background: #fff;
   box-shadow: 12px 4px 36px #fff;
-  border: 1px solid #FFE8A3;
+  // border: 1px solid #ffe8a3;
   .message-container {
-    width: 540px;
-    h3 {
-      font-size: 18px;
+    @include flex-row-center(1rem);
+    h1 {
+      font-size: 32px;
     }
     a {
       color: #172815;
       text-decoration: underline;
       text-decoration-color: #ffd147;
+    }
+  }
+  .moceansms-showcase {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: 48px auto;
+    grid-template-areas: "moceansms-icon moceansms-title" "moceansms-paragraph moceansms-paragraph" "moceansms-button moceansms-button" "moceansms-preview moceansms-preview";
+
+    img {
+      width: 32px;
+      grid-area: moceansms-icon;
+    }
+    h2 {
+      grid-area: moceansms-title;
+    }
+    p {
+      grid-area: moceansms-paragraph;
+    }
+    button {
+      width: max-content;
+      grid-area: moceansms-button;
+    }
+    .moceansms-preview {
+      grid-area: moceansms-preview;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
     }
   }
 }
