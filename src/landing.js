@@ -479,7 +479,7 @@ System.out.println(res);`,
               Segment customers into lists and run drip campaigns to share
               targeted information.
             </p>
-            <a href="">
+            <a href="https://www.moceansms.com">
               <button>Check it out</button>
             </a>
             <div className="moceansms-preview">
