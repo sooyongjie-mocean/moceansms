@@ -479,9 +479,49 @@ System.out.println(res);`,
               Segment customers into lists and run drip campaigns to share
               targeted information.
             </p>
-            <button>Check it out</button>
+            <a href="">
+              <button>Check it out</button>
+            </a>
             <div className="moceansms-preview">
-              <div className="moceansms-dropdown">SMS Message</div>
+              <div className="moceansms-dropdown">
+                SMS Message
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12px"
+                  height="12px"
+                  viewBox="0,0,256,256"
+                >
+                  <g
+                    fill="#000000"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                  >
+                    <g transform="scale(10.66667,10.66667)">
+                      <path d="M4,9l8,8l8,-8z"></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div className="moceansms-message">
+                <p>
+                  <span>Ninjabus:</span> Hi Sarah! Your order #12346 has been
+                  shipped and will arrive tomorrow. Visit ninjabus.com/tracking
+                  to track your parcel, or reply HELP. Thank you for choosing
+                  us!
+                </p>
+                <p>#ninjabussin'</p>
+              </div>
             </div>
           </div>
         </div>
@@ -585,22 +625,18 @@ System.out.println(res);`,
             <div className="footer-socials">
               <ul>
                 <li>
-                  <img src={require("./img/icon_phone.png")} alt="" />
-                  <a href="tel:+60173788399">
-                    <span>+</span>60 17<span>-</span>378 8399
+                  <img src={require("./img/icon_teams.png")} alt="" />
+                  <a href="https://www.microsoft.com/en-my/microsoft-teams/log-in">
+                    mocean.support (MS Teams)
                   </a>
+                </li>
+                <li>
+                  <img src={require("./img/icon_wa2.png")} alt="" />
+                  <a href="https://wa.me/60173788399">wa.me/60173788399</a>
                 </li>
                 <li>
                   <img src={require("./img/icon_mail.png")} alt="" />
-                  <a href="tel:+60173788399">
-                    <span>+</span>60 17<span>-</span>378 8399
-                  </a>
-                </li>
-                <li>
-                  <img src={require("./img/icon_office.png")} alt="" />
-                  <a href="tel:+60173788399">
-                    <span>+</span>03<span>-</span>89964780
-                  </a>
+                  <a href="mailto:sales@moceansms.com">sales@moceansms.com</a>
                 </li>
               </ul>
             </div>

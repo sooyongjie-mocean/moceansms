@@ -330,7 +330,7 @@ section.landing-features {
 }
 
 .api-feature {
-  background: #f9f7f6 !important;
+  background: #f9f7f6;
 }
 
 .syntax-highlighter {
@@ -446,9 +446,11 @@ section.landing-features {
 }
 
 // MoceanSMS
-section.moceansms {
-  background: #fff;
+.moceansms {
+  background: #f9f7f6;
+  padding-bottom: 40px;
   box-shadow: 12px 4px 36px #fff;
+  padding: 4rem 2rem;
   // border: 1px solid #ffe8a3;
   .message-container {
     @include flex-row-center(1rem);
@@ -460,32 +462,120 @@ section.moceansms {
       text-decoration: underline;
       text-decoration-color: #ffd147;
     }
+    p {
+      font-size: 18px;
+    }
   }
-  .moceansms-showcase {
+  &-showcase {
+    max-width: 800px;
+    background: #fff;
+    padding: 40px 40px 0 40px;
+    border-radius: 24px;
+    border: 1px solid #eaeaea;
     display: grid;
-    column-gap: 2rem;
+    column-gap: 1rem;
+    row-gap: 1.25rem;
     grid-template-columns: 48px auto;
-    grid-template-areas: "moceansms-icon moceansms-title" "moceansms-paragraph moceansms-paragraph" "moceansms-button moceansms-button" "moceansms-preview moceansms-preview";
+    grid-template-rows: auto auto 1fr;
+
+    // Mobile view (row)
+    grid-template-areas:
+      "moceansms-icon moceansms-title"
+      "moceansms-paragraph moceansms-paragraph"
+      "moceansms-preview moceansms-preview"
+      "moceansms-button moceansms-button";
+    overflow: hidden;
+
+    @media screen and (max-width: 1024px) {
+      padding: 40px 40px 0 40px;
+    }
+
+    // using !important becuz I should have written media query for max-width instead
+    @media screen and (min-width: 1256px) {
+    padding: 40px 80px 0 80px;
+
+      max-width: 1200px;
+      grid-template-columns: 32px auto auto;
+      // Desktop view (column)
+      grid-template-areas:
+        "moceansms-icon moceansms-title moceansms-preview"
+        "moceansms-icon moceansms-paragraph moceansms-preview"
+        "moceansms-icon moceansms-button moceansms-preview";
+      .moceansms-preview {
+        margin-left: 40px;
+        border-bottom: unset;
+        justify-self: center;
+        border-radius: 16px 16px 0 0;
+      }
+      button {
+        margin-bottom: 24px !important;
+        justify-self: unset !important;
+      }
+    }
 
     img {
       width: 32px;
       grid-area: moceansms-icon;
     }
     h2 {
+      font-size: 1.5rem;
       grid-area: moceansms-title;
     }
     p {
+      max-width: 480px;
+      margin: 0px;
+      color: #3b4767;
+      font-weight: 500;
+      font-size: 1rem !important;
       grid-area: moceansms-paragraph;
+    }
+    a {
+      grid-area: moceansms-button;
+    }
+    a,
+    a:visited {
+      text-decoration: none;
+      margin-bottom: 24px;
     }
     button {
       width: max-content;
-      grid-area: moceansms-button;
+      height: fit-content;
+      background: #000;
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px 12px;
+      font-size: 0.95rem;
+      justify-self: center;
     }
-    .moceansms-preview {
-      grid-area: moceansms-preview;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #eaeaea;
+  }
+  &-preview {
+    grid-area: moceansms-preview;
+    border: 1px solid #dadada;
+    border-radius: 16px 16px 16px 16px;
+    overflow: hidden;
+  }
+  &-dropdown {
+    background: #f9f9f9;
+    padding: 12px 12px;
+    border-bottom: 1px solid #dadada;
+    font-weight: 500;
+    svg {
+      margin-left: 8px;
+    }
+  }
+  &-message {
+    padding: 16px 16px;
+    background: #fff;
+    @include flex-row(12px);
+    p {
+      font-size: 1rem !important;
+      font-weight: 400;
+      line-height: 1.25;
+      color: #111;
+    }
+    span {
+      color: #226488;
+      font-weight: 500;
     }
   }
 }
@@ -620,7 +710,7 @@ section.landing-footer {
 
       li {
         list-style: none;
-        @include flex-col(4px);
+        @include flex-col(6px);
       }
       a {
         color: #dadada;
