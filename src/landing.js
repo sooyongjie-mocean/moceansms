@@ -106,6 +106,7 @@ System.out.println(res);`,
     email: "",
     phone: "",
     country: selectedCountry,
+    subject: "",
     message: "",
   });
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -504,6 +505,18 @@ System.out.println(res);`,
                 onChange={handleChange}
                 required
                 placeholder="Enter your email"
+              />
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="">Subject</label>
+              <input
+                type="subject"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                placeholder="Your name"
               />
             </div>
             <div className="input-wrapper">
